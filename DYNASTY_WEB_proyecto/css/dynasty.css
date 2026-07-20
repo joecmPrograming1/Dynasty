@@ -1,0 +1,588 @@
+/* ============================================================
+   DYNASTY - Estilos del sistema (vistas internas)
+   Complementa la plantilla manteniendo el tema oscuro
+   ============================================================ */
+
+.usuario-sesion {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding-top: 18px;
+}
+
+.usuario-nombre {
+    color: #ffffff;
+    font-size: 14px;
+}
+
+.cerrar-sesion {
+    color: #f36100;
+    font-size: 13px;
+}
+
+.cerrar-sesion:hover {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.breadcrumb-interno {
+    padding: 60px 0;
+}
+
+.seccion-sistema {
+    background: #151515;
+    padding: 60px 0 80px 0;
+    min-height: 55vh;
+}
+
+/* Alertas */
+.alerta {
+    padding: 14px 18px;
+    margin-bottom: 22px;
+    font-size: 14px;
+    border-left: 4px solid;
+}
+
+.alerta-exito {
+    background: #0f2318;
+    border-color: #2eb872;
+    color: #7be0ae;
+}
+
+.alerta-error {
+    background: #2a1212;
+    border-color: #d9534f;
+    color: #f0a9a7;
+}
+
+/* Tarjetas de panel */
+.panel-card {
+    background: #0a0a0a;
+    border: 1px solid #333333;
+    padding: 30px;
+    text-align: center;
+    margin-bottom: 30px;
+    transition: border-color .2s ease;
+}
+
+.panel-card:hover {
+    border-color: #f36100;
+}
+
+.panel-card i {
+    font-size: 40px;
+    color: #f36100;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.panel-card h4 {
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.panel-card p {
+    color: #888888;
+    font-size: 14px;
+    margin-bottom: 18px;
+}
+
+.panel-card .numero {
+    font-size: 42px;
+    font-weight: 700;
+    color: #f36100;
+    font-family: "Oswald", sans-serif;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Tablas de gestión */
+.tabla-sistema {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.tabla-sistema th {
+    background: #0a0a0a;
+    color: #f36100;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 1px;
+    padding: 14px 12px;
+    border-bottom: 2px solid #f36100;
+    text-align: left;
+}
+
+.tabla-sistema td {
+    color: #c4c4c4;
+    font-size: 14px;
+    padding: 12px;
+    border-bottom: 1px solid #2a2a2a;
+    vertical-align: middle;
+}
+
+.tabla-sistema tr:hover td {
+    background: #1d1d1d;
+}
+
+.estado-activo {
+    color: #2eb872;
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.estado-inactivo {
+    color: #d9534f;
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+/* Botones pequeños de acción */
+.btn-accion {
+    display: inline-block;
+    padding: 6px 14px;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 1px solid #f36100;
+    background: transparent;
+    color: #f36100;
+    cursor: pointer;
+    margin: 2px;
+    transition: all .2s ease;
+}
+
+.btn-accion:hover {
+    background: #f36100;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.btn-accion.peligro {
+    border-color: #d9534f;
+    color: #d9534f;
+}
+
+.btn-accion.peligro:hover {
+    background: #d9534f;
+    color: #ffffff;
+}
+
+/* Formularios del sistema */
+.form-sistema {
+    background: #0a0a0a;
+    border: 1px solid #333333;
+    padding: 30px;
+    margin-bottom: 35px;
+}
+
+.form-sistema h3 {
+    color: #ffffff;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.form-sistema label {
+    color: #888888;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: 6px;
+}
+
+.form-sistema input,
+.form-sistema select,
+.form-sistema textarea {
+    width: 100%;
+    height: 46px;
+    border: 1px solid #363636;
+    background: transparent;
+    color: #ffffff;
+    font-size: 15px;
+    padding-left: 15px;
+    margin-bottom: 16px;
+}
+
+.form-sistema textarea {
+    height: 90px;
+    padding-top: 10px;
+    resize: vertical;
+}
+
+.form-sistema select {
+    background: #0a0a0a;
+}
+
+.form-sistema select option {
+    background: #0a0a0a;
+    color: #ffffff;
+}
+
+.filtros-sistema {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.filtros-sistema input,
+.filtros-sistema select {
+    height: 42px;
+    border: 1px solid #363636;
+    background: #0a0a0a;
+    color: #ffffff;
+    padding-left: 12px;
+    min-width: 200px;
+}
+
+.tabla-scroll {
+    overflow-x: auto;
+}
+
+@media only screen and (max-width: 767px) {
+    .usuario-sesion { align-items: center; padding-bottom: 10px; }
+}
+
+/* ============================================================
+   AJUSTES DE DISEÑO - espaciados, márgenes y encabezados
+   ============================================================ */
+
+/* Encabezado interno más compacto y título a la izquierda */
+.breadcrumb-interno {
+    padding: 42px 0 38px 0;
+}
+
+.breadcrumb-interno .breadcrumb-text {
+    text-align: left;
+}
+
+.breadcrumb-interno .breadcrumb-text h2 {
+    font-size: 34px;
+    margin-bottom: 0;
+    letter-spacing: 1px;
+}
+
+/* Respiración general de las secciones */
+.seccion-sistema {
+    padding: 55px 0 90px 0;
+}
+
+.seccion-sistema .section-title {
+    margin-bottom: 25px;
+}
+
+.seccion-sistema .section-title h2 {
+    font-size: 30px;
+}
+
+.seccion-sistema .section-title span {
+    font-size: 13px;
+}
+
+/* Fila de título + botón alineados verticalmente */
+.fila-encabezado {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 28px;
+}
+
+.fila-encabezado .section-title {
+    margin-bottom: 0;
+}
+
+/* Formularios: más aire entre campos y secciones */
+.form-sistema {
+    padding: 35px 40px;
+    margin-bottom: 40px;
+}
+
+.form-sistema h3 {
+    margin-bottom: 25px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #2a2a2a;
+}
+
+.form-sistema .row {
+    margin-left: -10px;
+    margin-right: -10px;
+}
+
+.form-sistema .row > div {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.form-sistema .site-btn {
+    margin-top: 8px;
+}
+
+/* Tablas con mejor respiración */
+.tabla-sistema th {
+    padding: 15px 14px;
+}
+
+.tabla-sistema td {
+    padding: 14px;
+}
+
+/* Tarjetas del panel con más aire */
+.panel-card {
+    padding: 38px 30px;
+}
+
+.panel-card i {
+    margin-bottom: 18px;
+}
+
+.panel-card .numero {
+    margin-bottom: 8px;
+}
+
+/* Alertas con margen coherente */
+.alerta {
+    margin-bottom: 28px;
+}
+
+/* Filtros mejor espaciados */
+.filtros-sistema {
+    margin-bottom: 25px;
+    padding: 18px 20px;
+    background: #0a0a0a;
+    border: 1px solid #2a2a2a;
+}
+
+@media only screen and (max-width: 767px) {
+    .breadcrumb-interno .breadcrumb-text {
+        text-align: center;
+    }
+
+    .seccion-sistema {
+        padding: 40px 0 60px 0;
+    }
+
+    .form-sistema {
+        padding: 25px 20px;
+    }
+
+    .fila-encabezado {
+        justify-content: center;
+        text-align: center;
+    }
+}
+
+/* Campo de contraseña con ojito para mostrar/ocultar (RF01) */
+.campo-password {
+    position: relative;
+}
+
+.campo-password input {
+    padding-right: 45px !important;
+}
+
+.campo-password .ojito {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888888;
+    cursor: pointer;
+    font-size: 16px;
+    z-index: 5;
+}
+
+.campo-password .ojito:hover {
+    color: #f36100;
+}
+
+/* Ajuste para el ojito dentro de la tarjeta de login (input con margen inferior) */
+.auth-card .campo-password .ojito {
+    top: 25px;
+}
+
+/* ============================================================
+   AJUSTES FINOS DE HEADER Y BREADCRUMB (limpieza visual)
+   ============================================================ */
+
+/* --- Logo DYNASTY: más grande y pegado a la esquina --- */
+.header-section .logo {
+    padding-left: 15px;
+}
+
+.header-section .logo .logo-text {
+    font-size: 38px !important;
+    letter-spacing: 3px;
+}
+
+/* --- Menú de navegación: bajarlo un poco y agrandarlo --- */
+.header-section .nav-menu {
+    padding-top: 8px;
+}
+
+.header-section .nav-menu ul li {
+    margin-right: 32px;
+}
+
+.header-section .nav-menu ul li a {
+    font-size: 16px;
+    letter-spacing: 1px;
+    padding: 12px 0;
+}
+
+/* --- Usuario/cerrar sesión: más grande y a la esquina --- */
+.usuario-sesion {
+    padding-top: 12px;
+    padding-right: 15px;
+}
+
+.usuario-nombre {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.usuario-nombre i {
+    color: #f36100;
+    margin-right: 4px;
+}
+
+.cerrar-sesion {
+    font-size: 14px;
+    margin-top: 2px;
+}
+
+/* --- Título de la página (breadcrumb): centrado y grande --- */
+.breadcrumb-interno {
+    padding: 70px 0 65px 0;
+}
+
+.breadcrumb-interno .breadcrumb-text {
+    text-align: center;
+}
+
+.breadcrumb-interno .breadcrumb-text h2 {
+    font-size: 52px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 0;
+}
+
+/* Overlay más oscuro en el breadcrumb interno para que el título resalte */
+.breadcrumb-interno::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(10, 10, 10, 0.55);
+    z-index: 1;
+}
+
+.breadcrumb-interno .container {
+    position: relative;
+    z-index: 2;
+}
+
+@media only screen and (max-width: 991px) {
+    .header-section .logo .logo-text {
+        font-size: 30px !important;
+    }
+    .usuario-sesion {
+        align-items: center;
+        padding-top: 0;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .breadcrumb-interno {
+        padding: 45px 0 40px 0;
+    }
+    .breadcrumb-interno .breadcrumb-text h2 {
+        font-size: 34px;
+    }
+}
+
+/* ============================================================
+   CORRECCIÓN: separar el menú del título de página
+   ============================================================ */
+
+/* El header queda como una barra sólida propia, sin encimarse */
+.header-section {
+    position: relative;
+    z-index: 10;
+    background: #0a0a0a;
+    padding: 18px 0;
+    border-bottom: 2px solid #f36100;
+}
+
+/* Menú centrado verticalmente con el logo */
+.header-section .nav-menu {
+    padding-top: 6px;
+}
+
+/* Más aire arriba para que PRINCIPAL nunca toque el menú */
+.breadcrumb-interno {
+    padding: 55px 0 55px 0;
+}
+
+.breadcrumb-interno .breadcrumb-text h2 {
+    font-size: 46px;
+}
+
+@media only screen and (max-width: 767px) {
+    .breadcrumb-interno {
+        padding: 40px 0;
+    }
+    .breadcrumb-interno .breadcrumb-text h2 {
+        font-size: 32px;
+    }
+}
+
+/* ============================================================
+   SIMETRÍA: menú centrado y tarjetas de igual altura
+   ============================================================ */
+
+/* Menú de navegación centrado dentro de su columna */
+.header-section .nav-menu {
+    display: flex;
+    justify-content: center;
+}
+
+.header-section .nav-menu ul {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* Tarjetas del panel: misma altura usando flexbox */
+.seccion-sistema .row.g-cards {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.seccion-sistema .row.g-cards > [class*="col-"] {
+    display: flex;
+}
+
+.panel-card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+/* El texto empuja el botón siempre al fondo → botones alineados */
+.panel-card p {
+    flex-grow: 1;
+}
+
+/* El botón y el "Próximamente" ocupan el mismo espacio visual */
+.panel-card .btn-accion {
+    align-self: center;
+}

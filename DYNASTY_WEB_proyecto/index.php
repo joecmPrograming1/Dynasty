@@ -1,4 +1,3 @@
 <?php
-header("Location: Inicio.php");
-exit;
-?>
+    header("Location: View/vInicio/IniciarSesion.php");
+    exit();
