@@ -19,17 +19,10 @@ function editarCliente(boton) {
     document.getElementById('edit_disponibilidad').value = d.disponibilidad;
     document.getElementById('edit_observaciones').value = d.observaciones;
     document.getElementById('formEditarCliente').style.display = 'block';
-    document.getElementById('formNuevoCliente').style.display = 'none';
     window.scrollTo({ top: document.getElementById('formEditarCliente').offsetTop - 100, behavior: 'smooth' });
 }
 
 function cancelarEdicionCliente() {
-    document.getElementById('formEditarCliente').style.display = 'none';
-}
-
-function mostrarFormNuevoCliente() {
-    var f = document.getElementById('formNuevoCliente');
-    f.style.display = (f.style.display === 'none' || f.style.display === '') ? 'block' : 'none';
     document.getElementById('formEditarCliente').style.display = 'none';
 }
 

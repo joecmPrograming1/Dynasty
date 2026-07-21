@@ -41,6 +41,10 @@
                             {
                                 echo '<div class="alerta alerta-exito">Ha cerrado sesión correctamente.</div>';
                             }
+                            if(isset($_GET["registro"]))
+                            {
+                                echo '<div class="alerta alerta-exito">Su cuenta se creó correctamente. Ya puede iniciar sesión.</div>';
+                            }
                         ?>
 
                         <form action="" method="post" id="formIniciarSesion">
@@ -53,6 +57,7 @@
                         </form>
 
                         <div class="auth-links">
+                            <a href="Registrarse.php">¿No tiene cuenta? Regístrese</a>
                             <a href="RecuperarAcceso.php">¿Olvidó su contraseña?</a>
                             <a href="/Dynasty/DYNASTY_WEB_proyecto/Inicio.php">Volver al inicio</a>
                         </div>

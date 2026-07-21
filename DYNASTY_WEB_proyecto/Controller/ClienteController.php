@@ -4,44 +4,8 @@
 
     ValidarSesion("ADMINISTRADOR");
 
-    if(isset($_POST["btnRegistrarCliente"]))
-    {
-        $identificacion = trim($_POST["identificacion"]);
-        $nombre         = trim($_POST["nombre"]);
-        $apellidos      = trim($_POST["apellidos"]);
-        $correo         = trim($_POST["correo"]);
-        $telefono       = trim($_POST["telefono"]);
-        $contrasena     = $_POST["contrasena"];
-        $objetivo       = trim($_POST["objetivo"]);
-        $nivel          = $_POST["nivel"];
-        $disponibilidad = trim($_POST["disponibilidad"]);
-        $observaciones  = trim($_POST["observaciones"]);
-
-        if($identificacion == "" || $nombre == "" || $apellidos == "" || $correo == "" || $contrasena == "" || $objetivo == "" || $disponibilidad == "")
-        {
-            $_POST["Mensaje"] = "Debe completar todos los campos obligatorios.";
-        }
-        else if(!filter_var($correo, FILTER_VALIDATE_EMAIL))
-        {
-            $_POST["Mensaje"] = "El correo electrónico no tiene un formato válido.";
-        }
-        else
-        {
-            // La contraseña nunca se guarda en texto plano (RF01/RNF01)
-            $contrasenaHash = password_hash($contrasena, PASSWORD_DEFAULT);
-
-            $resultado = RegistrarClienteModel($identificacion, $nombre, $apellidos, $correo, $telefono, $contrasenaHash, $objetivo, $nivel, $disponibilidad, $observaciones);
-
-            if($resultado)
-            {
-                header("Location: ../vCliente/GestionClientes.php?exito=registro");
-                exit();
-            }
-
-            $_POST["Mensaje"] = "No se pudo registrar el cliente. Verifique que la identificación y el correo no estén registrados.";
-        }
-    }
-
+    // El registro de clientes ahora es de auto-servicio (ver InicioController -> btnRegistrarse).
+    // El administrador solo consulta, edita y activa/desactiva.
     if(isset($_POST["btnActualizarCliente"]))
     {
         $idCliente      = $_POST["idCliente"];

@@ -2,6 +2,58 @@
     include_once $_SERVER['DOCUMENT_ROOT'] . '/Dynasty/DYNASTY_WEB_proyecto/Controller/UtilitarioController.php';
     include_once $_SERVER['DOCUMENT_ROOT'] . '/Dynasty/DYNASTY_WEB_proyecto/Model/InicioModel.php';
     include_once $_SERVER['DOCUMENT_ROOT'] . '/Dynasty/DYNASTY_WEB_proyecto/Model/UsuarioModel.php';
+    include_once $_SERVER['DOCUMENT_ROOT'] . '/Dynasty/DYNASTY_WEB_proyecto/Model/ClienteModel.php';
+
+    // Registro público: el propio cliente crea su cuenta (RF02).
+    // El SP asigna automáticamente el rol CLIENTE y guarda usuario + perfil en una transacción.
+    if(isset($_POST["btnRegistrarse"]))
+    {
+        $identificacion = trim($_POST["identificacion"]);
+        $nombre         = trim($_POST["nombre"]);
+        $apellidos      = trim($_POST["apellidos"]);
+        $correo         = trim($_POST["correo"]);
+        $telefono       = trim($_POST["telefono"]);
+        $contrasena     = $_POST["contrasena"];
+        $objetivo       = trim($_POST["objetivo"]);
+        $nivel          = $_POST["nivel"];
+        $disponibilidad = trim($_POST["disponibilidad"]);
+        $observaciones  = trim($_POST["observaciones"]);
+
+        // Se conserva lo digitado para repoblar el formulario si algo falla
+        $_POST["Datos"] = [
+            "identificacion" => $identificacion, "nombre" => $nombre, "apellidos" => $apellidos,
+            "correo" => $correo, "telefono" => $telefono, "objetivo" => $objetivo,
+            "nivel" => $nivel, "disponibilidad" => $disponibilidad, "observaciones" => $observaciones
+        ];
+
+        if($identificacion == "" || $nombre == "" || $apellidos == "" || $correo == "" || $contrasena == "" || $objetivo == "" || $disponibilidad == "")
+        {
+            $_POST["Mensaje"] = "Debe completar todos los campos obligatorios.";
+        }
+        else if(!filter_var($correo, FILTER_VALIDATE_EMAIL))
+        {
+            $_POST["Mensaje"] = "El correo electrónico no tiene un formato válido.";
+        }
+        else if(strlen($contrasena) < 6)
+        {
+            $_POST["Mensaje"] = "La contraseña debe tener al menos 6 caracteres.";
+        }
+        else
+        {
+            // La contraseña nunca se guarda en texto plano (RF01/RNF01)
+            $contrasenaHash = password_hash($contrasena, PASSWORD_DEFAULT);
+
+            $resultado = RegistrarClienteModel($identificacion, $nombre, $apellidos, $correo, $telefono, $contrasenaHash, $objetivo, $nivel, $disponibilidad, $observaciones);
+
+            if($resultado)
+            {
+                header("Location: IniciarSesion.php?registro=1");
+                exit();
+            }
+
+            $_POST["Mensaje"] = "No se pudo crear la cuenta. Verifique que la identificación y el correo no estén registrados.";
+        }
+    }
 
     if(isset($_POST["btnIniciarSesion"]))
     {
