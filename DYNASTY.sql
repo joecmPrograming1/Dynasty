@@ -44,6 +44,15 @@ CREATE TABLE `asignacion_rutina` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `asignacion_rutina`
+--
+
+LOCK TABLES `asignacion_rutina` WRITE;
+/*!40000 ALTER TABLE `asignacion_rutina` DISABLE KEYS */;
+/*!40000 ALTER TABLE `asignacion_rutina` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `cliente`
 --
 
@@ -61,8 +70,18 @@ CREATE TABLE `cliente` (
   UNIQUE KEY `UQ_cliente_usuario` (`id_usuario`),
   CONSTRAINT `FK_cliente_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`) ON UPDATE CASCADE,
   CONSTRAINT `CHK_cliente_nivel` CHECK (`nivel_actual` in ('PRINCIPIANTE','INTERMEDIO','AVANZADO'))
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cliente`
+--
+
+LOCK TABLES `cliente` WRITE;
+/*!40000 ALTER TABLE `cliente` DISABLE KEYS */;
+INSERT INTO `cliente` VALUES (1,2,'Bajar de peso','PRINCIPIANTE','3 dias por semana','Prefiere entrenar en las mananas.'),(2,3,'Ganar masa muscular','INTERMEDIO','5 dias por semana','Molestia antigua en el hombro derecho.'),(3,4,'Mejorar resistencia cardiovascular','PRINCIPIANTE','4 dias por semana','Retoma el ejercicio despues de un ano.'),(4,5,'Tonificar y ganar fuerza','AVANZADO','6 dias por semana','Compite en carreras recreativas.');
+/*!40000 ALTER TABLE `cliente` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `ejercicio`
@@ -80,8 +99,18 @@ CREATE TABLE `ejercicio` (
   `estado` tinyint(1) NOT NULL DEFAULT 1,
   PRIMARY KEY (`id_ejercicio`),
   UNIQUE KEY `UQ_ejercicio_nombre` (`nombre_ejercicio`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `ejercicio`
+--
+
+LOCK TABLES `ejercicio` WRITE;
+/*!40000 ALTER TABLE `ejercicio` DISABLE KEYS */;
+INSERT INTO `ejercicio` VALUES (1,'Sentadilla con barra','Fuerza','Flexion de rodillas y cadera bajando el tronco con la espalda recta, con la barra sobre los hombros.','Barra y discos',1),(2,'Press de banca','Fuerza','Acostado en banca, empuja la barra desde el pecho hasta extender los brazos.','Barra, banca y discos',1),(3,'Plancha abdominal','Core','Cuerpo recto apoyado en antebrazos y punta de pies, activando el abdomen.','Peso corporal',1),(4,'Burpees','Cardio','Combinacion continua de sentadilla, plancha y salto vertical.','Peso corporal',1),(5,'Remo con mancuerna','Fuerza','Con el torso inclinado, jala la mancuerna hacia la cadera contrayendo la espalda.','Mancuerna y banco',1),(6,'Saltar la cuerda','Cardio','Saltos continuos pasando la cuerda bajo los pies a ritmo constante.','Cuerda para saltar',1);
+/*!40000 ALTER TABLE `ejercicio` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `registro_progreso`
@@ -110,6 +139,15 @@ CREATE TABLE `registro_progreso` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `registro_progreso`
+--
+
+LOCK TABLES `registro_progreso` WRITE;
+/*!40000 ALTER TABLE `registro_progreso` DISABLE KEYS */;
+/*!40000 ALTER TABLE `registro_progreso` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `rol`
 --
 
@@ -125,6 +163,16 @@ CREATE TABLE `rol` (
   UNIQUE KEY `UQ_rol_nombre` (`nombre_rol`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `rol`
+--
+
+LOCK TABLES `rol` WRITE;
+/*!40000 ALTER TABLE `rol` DISABLE KEYS */;
+INSERT INTO `rol` VALUES (1,'ADMINISTRADOR','Entrenador responsable del sistema.',1),(2,'CLIENTE','Usuario que recibe y ejecuta rutinas.',1);
+/*!40000 ALTER TABLE `rol` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `rutina`
@@ -145,6 +193,15 @@ CREATE TABLE `rutina` (
   CONSTRAINT `CHK_rutina_nivel` CHECK (`nivel` in ('PRINCIPIANTE','INTERMEDIO','AVANZADO'))
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `rutina`
+--
+
+LOCK TABLES `rutina` WRITE;
+/*!40000 ALTER TABLE `rutina` DISABLE KEYS */;
+/*!40000 ALTER TABLE `rutina` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `rutina_ejercicio`
@@ -174,6 +231,15 @@ CREATE TABLE `rutina_ejercicio` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `rutina_ejercicio`
+--
+
+LOCK TABLES `rutina_ejercicio` WRITE;
+/*!40000 ALTER TABLE `rutina_ejercicio` DISABLE KEYS */;
+/*!40000 ALTER TABLE `rutina_ejercicio` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `tb_error`
 --
 
@@ -189,6 +255,15 @@ CREATE TABLE `tb_error` (
   PRIMARY KEY (`Consecutivo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tb_error`
+--
+
+LOCK TABLES `tb_error` WRITE;
+/*!40000 ALTER TABLE `tb_error` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tb_error` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `usuario`
@@ -213,8 +288,18 @@ CREATE TABLE `usuario` (
   UNIQUE KEY `UQ_usuario_correo` (`correo`),
   KEY `FK_usuario_rol` (`id_rol`),
   CONSTRAINT `FK_usuario_rol` FOREIGN KEY (`id_rol`) REFERENCES `rol` (`id_rol`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `usuario`
+--
+
+LOCK TABLES `usuario` WRITE;
+/*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
+INSERT INTO `usuario` VALUES (1,1,'119564317','Administrador','Dynasty','admin@dynasty.com','','$2y$10$/mYutOLvgpIaUlYsM564c.kQc0MLRyXYqPTR4M2XlaDcufYGNEeZe','2026-07-21 20:12:16',1),(2,2,'118820456','Ana','Jimenez Rojas','ana.jimenez@gmail.com','88012345','$2y$10$xBKHHfjFo219gSzP4m13..FmKVBJ/evl9hlZtwgJP2y5POQHxFePe','2026-07-21 20:12:16',1),(3,2,'205430876','Carlos','Mora Vargas','carlos.mora@gmail.com','87654321','$2y$10$xBKHHfjFo219gSzP4m13..FmKVBJ/evl9hlZtwgJP2y5POQHxFePe','2026-07-21 20:12:16',1),(4,2,'113450987','Maria','Solis Campos','maria.solis@gmail.com','86009988','$2y$10$xBKHHfjFo219gSzP4m13..FmKVBJ/evl9hlZtwgJP2y5POQHxFePe','2026-07-21 20:12:16',1),(5,2,'304560123','Diego','Herrera Nunez','diego.herrera@gmail.com','83221100','$2y$10$xBKHHfjFo219gSzP4m13..FmKVBJ/evl9hlZtwgJP2y5POQHxFePe','2026-07-21 20:12:16',1);
+/*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Dumping routines for database 'dynasty'
@@ -1034,4 +1119,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-07-18 11:31:52
+-- Dump completed on 2026-07-21 20:52:46

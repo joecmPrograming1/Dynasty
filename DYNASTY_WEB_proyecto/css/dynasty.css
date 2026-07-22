@@ -586,3 +586,147 @@
 .panel-card .btn-accion {
     align-self: center;
 }
+
+/* ============================================================
+   Botón principal (site-btn): base propia del sistema.
+   La plantilla base define .primary-btn; aquí damos estilo a
+   .site-btn para que todos los botones de formularios luzcan igual.
+   ============================================================ */
+.site-btn {
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+    background: #f36100;
+    color: #ffffff;
+    font-family: "Oswald", sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 15px 34px;
+    line-height: normal;
+    transition: background .2s ease;
+}
+
+.site-btn:hover {
+    background: #d15400;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+/* Select y textarea dentro de la tarjeta de autenticación
+   (la plantilla solo estilizaba input). */
+.auth-card select,
+.auth-card textarea {
+    width: 100%;
+    height: 50px;
+    border: 1px solid #363636;
+    background: #0a0a0a;
+    color: #ffffff;
+    font-size: 15px;
+    padding-left: 20px;
+    margin-bottom: 18px;
+}
+
+.auth-card select option {
+    background: #0a0a0a;
+    color: #ffffff;
+}
+
+.auth-card textarea {
+    height: 100px;
+    padding: 12px 20px;
+    resize: vertical;
+}
+
+/* ============================================================
+   Formulario de registro: grilla uniforme dentro de la tarjeta.
+   ============================================================ */
+.form-registro {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0 22px;
+    text-align: left;
+}
+
+.form-registro .campo {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-registro .campo.col-full {
+    grid-column: 1 / -1;
+}
+
+.form-registro label {
+    color: #888888;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+.form-registro input,
+.form-registro select,
+.form-registro textarea {
+    width: 100%;
+    height: 50px;
+    border: 1px solid #363636;
+    background: #0a0a0a;
+    color: #ffffff;
+    font-size: 15px;
+    padding: 0 15px;
+    margin-bottom: 18px;
+}
+
+.form-registro textarea {
+    height: 100px;
+    padding: 12px 15px;
+    resize: vertical;
+}
+
+.form-registro select option {
+    background: #0a0a0a;
+    color: #ffffff;
+}
+
+.form-registro input:focus,
+.form-registro select:focus,
+.form-registro textarea:focus {
+    border-color: #f36100;
+    outline: none;
+}
+
+.form-registro input::placeholder,
+.form-registro textarea::placeholder {
+    color: #888888;
+}
+
+/* Campo de contraseña con ojito alineado dentro del input */
+.form-registro .campo-password {
+    position: relative;
+}
+
+.form-registro .campo-password input {
+    margin-bottom: 18px;
+    padding-right: 45px;
+}
+
+.form-registro .campo-password .ojito {
+    position: absolute;
+    right: 16px;
+    top: 25px;
+    transform: translateY(-50%);
+    color: #888888;
+    cursor: pointer;
+}
+
+.form-registro .campo-password .ojito:hover {
+    color: #f36100;
+}
+
+@media only screen and (max-width: 767px) {
+    .form-registro {
+        grid-template-columns: 1fr;
+    }
+}
