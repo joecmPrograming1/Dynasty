@@ -12,6 +12,9 @@
     // Conserva lo digitado si el registro falla
     $v = isset($_POST["Datos"]) ? $_POST["Datos"] : [];
     function old($v, $k) { return isset($v[$k]) ? htmlspecialchars($v[$k]) : ""; }
+
+    // Los niveles se consultan a la base de datos por medio del controlador
+    $niveles = ConsultarNivelesRegistro();
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -79,9 +82,9 @@
                                 <div class="campo">
                                     <label>Nivel *</label>
                                     <select name="nivel" required>
-                                        <option value="PRINCIPIANTE" <?= old($v,'nivel')=='PRINCIPIANTE'?'selected':'' ?>>Principiante</option>
-                                        <option value="INTERMEDIO" <?= old($v,'nivel')=='INTERMEDIO'?'selected':'' ?>>Intermedio</option>
-                                        <option value="AVANZADO" <?= old($v,'nivel')=='AVANZADO'?'selected':'' ?>>Avanzado</option>
+                                        <?php foreach($niveles as $n): ?>
+                                            <option value="<?= $n['codigo_nivel'] ?>" <?= old($v,'nivel')==$n['codigo_nivel']?'selected':'' ?>><?= $n['descripcion'] ?></option>
+                                        <?php endforeach; ?>
                                     </select>
                                 </div>
                                 <div class="campo">

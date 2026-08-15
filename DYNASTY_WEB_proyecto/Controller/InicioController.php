@@ -3,6 +3,7 @@
     include_once $_SERVER['DOCUMENT_ROOT'] . '/Dynasty/DYNASTY_WEB_proyecto/Model/InicioModel.php';
     include_once $_SERVER['DOCUMENT_ROOT'] . '/Dynasty/DYNASTY_WEB_proyecto/Model/UsuarioModel.php';
     include_once $_SERVER['DOCUMENT_ROOT'] . '/Dynasty/DYNASTY_WEB_proyecto/Model/ClienteModel.php';
+    include_once $_SERVER['DOCUMENT_ROOT'] . '/Dynasty/DYNASTY_WEB_proyecto/Model/NivelModel.php';
 
     // Registro público: el propio cliente crea su cuenta (RF02).
     // El SP asigna automáticamente el rol CLIENTE y guarda usuario + perfil en una transacción.
@@ -118,4 +119,10 @@
             // Mensaje general: no revela si el correo existe o no (seguridad)
             $_POST["MensajeExito"] = "Si el correo está registrado, recibirá una contraseña temporal en su bandeja de entrada.";
         }
+    }
+
+    // Funcion que utiliza la vista de registro. La vista nunca llama al modelo directamente.
+    function ConsultarNivelesRegistro()
+    {
+        return ConsultarNivelesModel();
     }

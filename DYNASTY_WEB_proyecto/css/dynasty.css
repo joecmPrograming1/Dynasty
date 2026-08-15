@@ -730,3 +730,36 @@
         grid-template-columns: 1fr;
     }
 }
+
+/* ============================================================
+   CLASES UTILITARIAS
+   Reemplazan los estilos en linea de las vistas (buena practica:
+   la presentacion vive en el archivo CSS, no en el HTML).
+   ============================================================ */
+
+.oculto {
+    display: none;
+}
+
+.form-inline {
+    display: inline;
+}
+
+.ml-10 {
+    margin-left: 10px;
+}
+
+.texto-centro {
+    text-align: center;
+}
+
+.btn-deshabilitado {
+    opacity: .4;
+    cursor: default;
+}
+
+.nota-formulario {
+    color: #888888;
+    font-size: 13px;
+    margin-bottom: 18px;
+}

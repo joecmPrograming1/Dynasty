@@ -32,16 +32,7 @@
     <section class="seccion-sistema">
         <div class="container">
 
-            <?php
-                if(isset($_POST["MensajeExito"]))
-                {
-                    echo '<div class="alerta alerta-exito">' . $_POST["MensajeExito"] . '</div>';
-                }
-                if(isset($_POST["Mensaje"]))
-                {
-                    echo '<div class="alerta alerta-error">' . $_POST["Mensaje"] . '</div>';
-                }
-            ?>
+            <?php Alertas(); ?>
 
             <div class="row">
                 <div class="col-lg-7">
@@ -78,7 +69,7 @@
                 <div class="col-lg-5">
                     <div class="form-sistema">
                         <h3>Cambiar contraseña</h3>
-                        <p style="color:#888888; font-size:13px; margin-bottom:18px;">
+                        <p class="nota-formulario">
                             Al cambiar su contraseña se cerrará la sesión y deberá ingresar de nuevo.
                         </p>
                         <form action="" method="post">

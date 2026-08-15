@@ -2,7 +2,8 @@
     include_once $_SERVER['DOCUMENT_ROOT'] . '/Dynasty/DYNASTY_WEB_proyecto/Controller/EjercicioController.php';
     include_once $_SERVER['DOCUMENT_ROOT'] . '/Dynasty/DYNASTY_WEB_proyecto/View/LayoutInterno.php';
 
-    $ejercicios = ConsultarEjerciciosModel();
+    // La vista solicita la informacion al controlador (patron MVC)
+    $ejercicios = ConsultarEjercicios();
 
     // Categorías únicas para el filtro
     $categorias = [];
@@ -31,24 +32,11 @@
         <div class="container">
 
             <?php
-                if(isset($_GET["exito"]))
-                {
-                    $mensajes = [
-                        "registro"      => "Ejercicio registrado correctamente.",
-                        "actualizacion" => "Ejercicio actualizado correctamente.",
-                        "estado"        => "Estado del ejercicio actualizado correctamente."
-                    ];
-                    $m = isset($mensajes[$_GET["exito"]]) ? $mensajes[$_GET["exito"]] : "Operación realizada correctamente.";
-                    echo '<div class="alerta alerta-exito">' . $m . '</div>';
-                }
-                if(isset($_GET["error"]))
-                {
-                    echo '<div class="alerta alerta-error">No se pudo completar la operación. Intente de nuevo.</div>';
-                }
-                if(isset($_POST["Mensaje"]))
-                {
-                    echo '<div class="alerta alerta-error">' . $_POST["Mensaje"] . '</div>';
-                }
+                Alertas([
+                    "registro"      => "Ejercicio registrado correctamente.",
+                    "actualizacion" => "Ejercicio actualizado correctamente.",
+                    "estado"        => "Estado del ejercicio actualizado correctamente."
+                ]);
             ?>
 
             <div class="fila-encabezado">
@@ -64,7 +52,7 @@
             </div>
 
             <!-- Formulario nuevo (RF03) -->
-            <div class="form-sistema" id="formNuevoEjercicio" style="display:none;">
+            <div class="form-sistema oculto" id="formNuevoEjercicio">
                 <h3>Registrar nuevo ejercicio</h3>
                 <form action="" method="post">
                     <div class="row">
@@ -86,7 +74,7 @@
             </div>
 
             <!-- Formulario edición (RF03) -->
-            <div class="form-sistema" id="formEditarEjercicio" style="display:none;">
+            <div class="form-sistema oculto" id="formEditarEjercicio">
                 <h3>Editar ejercicio</h3>
                 <form action="" method="post">
                     <input type="hidden" name="idEjercicio" id="edit_idEjercicio">
@@ -105,7 +93,7 @@
                     <label>Equipo requerido</label>
                     <input type="text" name="equipo" id="edit_equipoEj" maxlength="150">
                     <button type="submit" name="btnActualizarEjercicio" class="site-btn">Guardar cambios</button>
-                    <button type="button" class="btn-accion peligro" onclick="cancelarEdicionEjercicio();" style="margin-left:10px;">Cancelar</button>
+                    <button type="button" class="btn-accion peligro ml-10" onclick="cancelarEdicionEjercicio();">Cancelar</button>
                 </form>
             </div>
 
@@ -162,7 +150,7 @@
                                             data-equipo="<?= htmlspecialchars($e["equipo_requerido"]) ?>"
                                             onclick="editarEjercicio(this);">Editar</button>
 
-                                        <form action="" method="post" style="display:inline;"
+                                        <form action="" method="post" class="form-inline"
                                             onsubmit="return confirmarCambioEstado('¿Está seguro de que desea <?= $e["estado"] == 1 ? "desactivar" : "activar" ?> este ejercicio?');">
                                             <input type="hidden" name="idEjercicio" value="<?= $e["id_ejercicio"] ?>">
                                             <input type="hidden" name="estado" value="<?= $e["estado"] == 1 ? 0 : 1 ?>">
@@ -175,7 +163,7 @@
                                 </tr>
                             <?php endforeach; ?>
                         <?php else: ?>
-                            <tr><td colspan="6" style="text-align:center;">No hay ejercicios registrados.</td></tr>
+                            <tr><td colspan="6" class="texto-centro">No hay ejercicios registrados.</td></tr>
                         <?php endif; ?>
                     </tbody>
                 </table>

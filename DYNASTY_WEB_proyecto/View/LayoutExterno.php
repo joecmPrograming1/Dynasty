@@ -92,3 +92,34 @@ function FooterExterno()
         </section>
     ';
 }
+
+/**
+ * Muestra los mensajes de exito o error de forma centralizada.
+ * Evita repetir el mismo bloque de codigo en cada vista.
+ *
+ * @param array $exitos  Diccionario de codigos de exito y su mensaje.
+ */
+function Alertas($exitos = [])
+{
+    if(isset($_GET["exito"]))
+    {
+        $codigo  = $_GET["exito"];
+        $mensaje = isset($exitos[$codigo]) ? $exitos[$codigo] : "Operacion realizada correctamente.";
+        echo '<div class="alerta alerta-exito">' . $mensaje . '</div>';
+    }
+
+    if(isset($_GET["error"]))
+    {
+        echo '<div class="alerta alerta-error">No se pudo completar la operacion. Intente de nuevo.</div>';
+    }
+
+    if(isset($_POST["MensajeExito"]))
+    {
+        echo '<div class="alerta alerta-exito">' . $_POST["MensajeExito"] . '</div>';
+    }
+
+    if(isset($_POST["Mensaje"]))
+    {
+        echo '<div class="alerta alerta-error">' . $_POST["Mensaje"] . '</div>';
+    }
+}

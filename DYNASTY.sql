@@ -112,6 +112,48 @@ INSERT INTO `ejercicio` VALUES (1,'Sentadilla con barra','Fuerza','Flexion de ro
 /*!40000 ALTER TABLE `ejercicio` ENABLE KEYS */;
 UNLOCK TABLES;
 
+
+--
+-- Table structure for table `nivel`
+--
+
+DROP TABLE IF EXISTS `nivel`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `nivel` (
+  `id_nivel`     smallint unsigned NOT NULL AUTO_INCREMENT,
+  `codigo_nivel` varchar(20) NOT NULL,
+  `descripcion`  varchar(50) NOT NULL,
+  `orden`        smallint unsigned NOT NULL,
+  `estado`       tinyint(1) NOT NULL DEFAULT 1,
+  PRIMARY KEY (`id_nivel`),
+  UNIQUE KEY `UQ_nivel_codigo` (`codigo_nivel`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `nivel`
+--
+
+LOCK TABLES `nivel` WRITE;
+INSERT INTO `nivel` VALUES (1,'PRINCIPIANTE','Principiante',1,1),(2,'INTERMEDIO','Intermedio',2,1),(3,'AVANZADO','Avanzado',3,1);
+UNLOCK TABLES;
+
+--
+-- Procedure `spConsultarNiveles`
+--
+
+DROP PROCEDURE IF EXISTS `spConsultarNiveles`;
+DELIMITER ;;
+CREATE PROCEDURE `spConsultarNiveles`()
+BEGIN
+    SELECT id_nivel, codigo_nivel, descripcion
+    FROM nivel
+    WHERE estado = 1
+    ORDER BY orden;
+END ;;
+DELIMITER ;
+
 --
 -- Table structure for table `registro_progreso`
 --

@@ -1,6 +1,7 @@
 <?php
     include_once $_SERVER['DOCUMENT_ROOT'] . '/Dynasty/DYNASTY_WEB_proyecto/Controller/UtilitarioController.php';
     include_once $_SERVER['DOCUMENT_ROOT'] . '/Dynasty/DYNASTY_WEB_proyecto/Model/ClienteModel.php';
+    include_once $_SERVER['DOCUMENT_ROOT'] . '/Dynasty/DYNASTY_WEB_proyecto/Model/NivelModel.php';
 
     ValidarSesion("ADMINISTRADOR");
 
@@ -46,4 +47,15 @@
 
         header("Location: ../vCliente/GestionClientes.php" . ($resultado ? "?exito=estado" : "?error=estado"));
         exit();
+    }
+
+    // Funciones que utiliza la vista. La vista nunca llama al modelo directamente.
+    function ConsultarClientes()
+    {
+        return ConsultarClientesModel();
+    }
+
+    function ConsultarNiveles()
+    {
+        return ConsultarNivelesModel();
     }

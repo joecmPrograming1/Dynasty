@@ -1,30 +1,12 @@
 <?php
-    include_once $_SERVER['DOCUMENT_ROOT'] . '/Dynasty/DYNASTY_WEB_proyecto/Controller/UtilitarioController.php';
-    include_once $_SERVER['DOCUMENT_ROOT'] . '/Dynasty/DYNASTY_WEB_proyecto/Model/ClienteModel.php';
-    include_once $_SERVER['DOCUMENT_ROOT'] . '/Dynasty/DYNASTY_WEB_proyecto/Model/EjercicioModel.php';
+    include_once $_SERVER['DOCUMENT_ROOT'] . '/Dynasty/DYNASTY_WEB_proyecto/Controller/PrincipalController.php';
     include_once $_SERVER['DOCUMENT_ROOT'] . '/Dynasty/DYNASTY_WEB_proyecto/View/LayoutInterno.php';
-
-    ValidarSesion();
 
     $esAdmin = ($_SESSION["Rol"] == "ADMINISTRADOR");
 
-    $totalClientes = 0;
-    $totalEjercicios = 0;
-
-    if($esAdmin)
-    {
-        $clientes = ConsultarClientesModel();
-        foreach($clientes as $c)
-        {
-            if($c["estado"] == 1) { $totalClientes++; }
-        }
-
-        $ejercicios = ConsultarEjerciciosModel();
-        foreach($ejercicios as $e)
-        {
-            if($e["estado"] == 1) { $totalEjercicios++; }
-        }
-    }
+    $resumen = ConsultarResumenPanel();
+    $totalClientes   = $resumen["clientes"];
+    $totalEjercicios = $resumen["ejercicios"];
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -76,7 +58,7 @@
                         <span class="numero">&mdash;</span>
                         <h4>Rutinas y asignaciones</h4>
                         <p>Disponible en la siguiente versión del sistema.</p>
-                        <span class="btn-accion" style="opacity:.4; cursor:default;">Próximamente</span>
+                        <span class="btn-accion btn-deshabilitado">Próximamente</span>
                     </div>
                 </div>
             </div>

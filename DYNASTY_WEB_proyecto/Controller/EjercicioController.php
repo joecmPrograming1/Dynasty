@@ -65,3 +65,9 @@
         header("Location: ../vEjercicio/GestionEjercicios.php" . ($resultado ? "?exito=estado" : "?error=estado"));
         exit();
     }
+
+    // Funciones que utiliza la vista. La vista nunca llama al modelo directamente.
+    function ConsultarEjercicios()
+    {
+        return ConsultarEjerciciosModel();
+    }

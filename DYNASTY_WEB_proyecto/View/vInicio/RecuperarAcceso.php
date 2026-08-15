@@ -25,16 +25,7 @@
                     <div class="auth-card">
                         <p>Ingrese el correo electrónico de su cuenta. Le enviaremos una contraseña temporal para que pueda ingresar de nuevo.</p>
 
-                        <?php
-                            if(isset($_POST["MensajeExito"]))
-                            {
-                                echo '<div class="alerta alerta-exito">' . $_POST["MensajeExito"] . '</div>';
-                            }
-                            if(isset($_POST["Mensaje"]))
-                            {
-                                echo '<div class="alerta alerta-error">' . $_POST["Mensaje"] . '</div>';
-                            }
-                        ?>
+                        <?php Alertas(); ?>
 
                         <form action="" method="post">
                             <input type="email" name="correo" placeholder="Correo electrónico" required>

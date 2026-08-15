@@ -2,7 +2,9 @@
     include_once $_SERVER['DOCUMENT_ROOT'] . '/Dynasty/DYNASTY_WEB_proyecto/Controller/ClienteController.php';
     include_once $_SERVER['DOCUMENT_ROOT'] . '/Dynasty/DYNASTY_WEB_proyecto/View/LayoutInterno.php';
 
-    $clientes = ConsultarClientesModel();
+    // La vista solicita la informacion al controlador (patron MVC)
+    $clientes = ConsultarClientes();
+    $niveles  = ConsultarNiveles();
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -20,24 +22,10 @@
         <div class="container">
 
             <?php
-                if(isset($_GET["exito"]))
-                {
-                    $mensajes = [
-                        "registro"      => "Cliente registrado correctamente.",
-                        "actualizacion" => "Cliente actualizado correctamente.",
-                        "estado"        => "Estado del cliente actualizado correctamente."
-                    ];
-                    $m = isset($mensajes[$_GET["exito"]]) ? $mensajes[$_GET["exito"]] : "Operación realizada correctamente.";
-                    echo '<div class="alerta alerta-exito">' . $m . '</div>';
-                }
-                if(isset($_GET["error"]))
-                {
-                    echo '<div class="alerta alerta-error">No se pudo completar la operación. Intente de nuevo.</div>';
-                }
-                if(isset($_POST["Mensaje"]))
-                {
-                    echo '<div class="alerta alerta-error">' . $_POST["Mensaje"] . '</div>';
-                }
+                Alertas([
+                    "actualizacion" => "Cliente actualizado correctamente.",
+                    "estado"        => "Estado del cliente actualizado correctamente."
+                ]);
             ?>
 
             <div class="fila-encabezado">
@@ -50,7 +38,7 @@
             </div>
 
             <!-- Formulario de edición (RF02) -->
-            <div class="form-sistema" id="formEditarCliente" style="display:none;">
+            <div class="form-sistema oculto" id="formEditarCliente">
                 <h3>Editar cliente</h3>
                 <form action="" method="post">
                     <input type="hidden" name="idCliente" id="edit_idCliente">
@@ -80,9 +68,9 @@
                         <div class="col-md-4">
                             <label>Nivel *</label>
                             <select name="nivel" id="edit_nivel" required>
-                                <option value="PRINCIPIANTE">Principiante</option>
-                                <option value="INTERMEDIO">Intermedio</option>
-                                <option value="AVANZADO">Avanzado</option>
+                                <?php foreach($niveles as $n): ?>
+                                    <option value="<?= $n['codigo_nivel'] ?>"><?= $n['descripcion'] ?></option>
+                                <?php endforeach; ?>
                             </select>
                         </div>
                     </div>
@@ -99,7 +87,7 @@
                     <label>Observaciones</label>
                     <textarea name="observaciones" id="edit_observaciones" maxlength="500"></textarea>
                     <button type="submit" name="btnActualizarCliente" class="site-btn">Guardar cambios</button>
-                    <button type="button" class="btn-accion peligro" onclick="cancelarEdicionCliente();" style="margin-left:10px;">Cancelar</button>
+                    <button type="button" class="btn-accion peligro ml-10" onclick="cancelarEdicionCliente();">Cancelar</button>
                 </form>
             </div>
 
@@ -147,7 +135,7 @@
                                             data-observaciones="<?= htmlspecialchars($c["observaciones"]) ?>"
                                             onclick="editarCliente(this);">Editar</button>
 
-                                        <form action="" method="post" style="display:inline;"
+                                        <form action="" method="post" class="form-inline"
                                             onsubmit="return confirmarCambioEstado('¿Está seguro de que desea <?= $c["estado"] == 1 ? "desactivar" : "activar" ?> este cliente?');">
                                             <input type="hidden" name="idCliente" value="<?= $c["id_cliente"] ?>">
                                             <input type="hidden" name="estado" value="<?= $c["estado"] == 1 ? 0 : 1 ?>">
@@ -160,7 +148,7 @@
                                 </tr>
                             <?php endforeach; ?>
                         <?php else: ?>
-                            <tr><td colspan="7" style="text-align:center;">No hay clientes registrados.</td></tr>
+                            <tr><td colspan="7" class="texto-centro">No hay clientes registrados.</td></tr>
                         <?php endif; ?>
                     </tbody>
                 </table>
