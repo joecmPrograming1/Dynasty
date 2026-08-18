@@ -10,8 +10,18 @@ function HeaderInterno()
 
     if($rol == "ADMINISTRADOR")
     {
+        // Opciones del entrenador (RF02 a RF05 y RF08)
         $menu .= '<li><a href="/Dynasty/DYNASTY_WEB_proyecto/View/vCliente/GestionClientes.php">Clientes</a></li>';
         $menu .= '<li><a href="/Dynasty/DYNASTY_WEB_proyecto/View/vEjercicio/GestionEjercicios.php">Ejercicios</a></li>';
+        $menu .= '<li><a href="/Dynasty/DYNASTY_WEB_proyecto/View/vRutina/GestionRutinas.php">Rutinas</a></li>';
+        $menu .= '<li><a href="/Dynasty/DYNASTY_WEB_proyecto/View/vAsignacion/Asignaciones.php">Asignaciones</a></li>';
+        $menu .= '<li><a href="/Dynasty/DYNASTY_WEB_proyecto/View/vAsignacion/Seguimiento.php">Seguimiento</a></li>';
+    }
+    else
+    {
+        // Opciones del cliente (RF06 y RF07)
+        $menu .= '<li><a href="/Dynasty/DYNASTY_WEB_proyecto/View/vProgreso/MiRutina.php">Mi rutina</a></li>';
+        $menu .= '<li><a href="/Dynasty/DYNASTY_WEB_proyecto/View/vProgreso/MiProgreso.php">Mi progreso</a></li>';
     }
 
     $menu .= '<li><a href="/Dynasty/DYNASTY_WEB_proyecto/View/vUsuario/MiPerfil.php">Mi perfil</a></li>';

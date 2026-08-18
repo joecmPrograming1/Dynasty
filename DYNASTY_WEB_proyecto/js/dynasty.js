@@ -82,3 +82,49 @@ function alternarContrasena(icono) {
         icono.classList.add('fa-eye');
     }
 }
+
+// ============================================================
+// DataTables y SweetAlert2 (tecnicas vistas en clase)
+// ============================================================
+
+$(document).ready(function () {
+
+    var configuracion = {
+        pageLength: 10,
+        order: [],
+        language: {
+            url: 'https://cdn.datatables.net/plug-ins/2.1.8/i18n/es-ES.json'
+        },
+        columnDefs: [
+            { targets: -1, orderable: false, searchable: false }
+        ]
+    };
+
+    ['#tablaClientesLista', '#tablaEjercicios', '#tablaRutinas', '#tablaAsignaciones'].forEach(function (id) {
+        if ($(id).length) {
+            new DataTable(id, configuracion);
+        }
+    });
+
+});
+
+/**
+ * Confirmacion con SweetAlert antes de cambiar el estado de un registro.
+ * Reemplaza el confirm() del navegador.
+ */
+function confirmarEstado(formulario, mensaje) {
+
+    Swal.fire({
+        text: mensaje,
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonText: 'Si',
+        cancelButtonText: 'No'
+    }).then(function (resultado) {
+        if (resultado.isConfirmed) {
+            formulario.submit();
+        }
+    });
+
+    return false;
+}

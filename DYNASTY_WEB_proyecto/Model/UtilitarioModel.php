@@ -21,11 +21,14 @@
         {
             $conn = OpenDB();
 
-            $mensaje = $conn -> real_escape_string($error -> getMessage());
+            $mensaje   = $error -> getMessage();
             $idUsuario = isset($_SESSION["IdUsuario"]) ? $_SESSION["IdUsuario"] : 0;
 
-            $sql = "CALL spRegistrarError('$mensaje', '$accion', '$idUsuario')";
-            $conn -> query($sql);
+            // Consulta parametrizada (RNF01)
+            $stmt = $conn -> prepare("CALL spRegistrarError(?,?,?)");
+            $stmt -> bind_param("ssi", $mensaje, $accion, $idUsuario);
+            $stmt -> execute();
+            $stmt -> close();
 
             CloseDB($conn);
         }

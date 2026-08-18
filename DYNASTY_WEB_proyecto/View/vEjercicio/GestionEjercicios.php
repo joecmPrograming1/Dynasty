@@ -151,7 +151,7 @@
                                             onclick="editarEjercicio(this);">Editar</button>
 
                                         <form action="" method="post" class="form-inline"
-                                            onsubmit="return confirmarCambioEstado('¿Está seguro de que desea <?= $e["estado"] == 1 ? "desactivar" : "activar" ?> este ejercicio?');">
+                                            onsubmit="return confirmarEstado(this, '¿Está seguro de que desea <?= $e["estado"] == 1 ? "desactivar" : "activar" ?> este ejercicio?');">
                                             <input type="hidden" name="idEjercicio" value="<?= $e["id_ejercicio"] ?>">
                                             <input type="hidden" name="estado" value="<?= $e["estado"] == 1 ? 0 : 1 ?>">
                                             <button type="submit" name="btnCambiarEstadoEjercicio"

@@ -110,7 +110,7 @@
                 {
                     $plantilla = file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/Dynasty/DYNASTY_WEB_proyecto/View/templates/Recuperacion.html');
                     $plantilla = str_replace("{{NOMBRE}}", $usuario["nombre"] . " " . $usuario["apellidos"], $plantilla);
-                    $plantilla = str_replace("{{CONTRASENNA}}", $contrasenaTemporal, $plantilla);
+                    $plantilla = str_replace("{{TEMPORAL}}", $contrasenaTemporal, $plantilla);
 
                     EnviarCorreo("Dynasty - Recuperación de acceso", $plantilla, $correo);
                 }

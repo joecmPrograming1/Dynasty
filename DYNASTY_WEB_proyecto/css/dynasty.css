@@ -763,3 +763,312 @@
     font-size: 13px;
     margin-bottom: 18px;
 }
+
+/* ============================================================
+   RF04 a RF08 - Rutinas, asignaciones y progreso
+   ============================================================ */
+
+.subtitulo-detalle {
+    color: #ffffff;
+    font-size: 17px;
+    margin: 26px 0 6px 0;
+    padding-top: 18px;
+    border-top: 1px solid #2a2a2a;
+}
+
+/* Tabla del detalle de ejercicios dentro del formulario */
+.tabla-detalle {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 14px;
+    min-width: 900px;
+}
+
+.tabla-detalle th {
+    background: #141414;
+    color: #f36100;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: .6px;
+    padding: 10px 8px;
+    text-align: left;
+    border-bottom: 1px solid #2a2a2a;
+}
+
+.tabla-detalle td {
+    padding: 6px;
+    border-bottom: 1px solid #222222;
+    vertical-align: middle;
+}
+
+.tabla-detalle input,
+.tabla-detalle select {
+    width: 100%;
+    height: 38px;
+    margin: 0;
+    padding-left: 8px;
+    border: 1px solid #363636;
+    background: transparent;
+    color: #ffffff;
+    font-size: 14px;
+}
+
+.tabla-detalle select {
+    background: #0a0a0a;
+}
+
+.btn-quitar {
+    background: transparent;
+    border: 1px solid #d9534f;
+    color: #d9534f;
+    width: 32px;
+    height: 32px;
+    font-size: 18px;
+    line-height: 1;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.btn-quitar:hover {
+    background: #d9534f;
+    color: #ffffff;
+}
+
+.acciones-formulario {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 22px;
+}
+
+.acciones-formulario .site-btn {
+    width: auto;
+    padding: 12px 30px;
+}
+
+/* Aviso informativo dentro de los formularios */
+.aviso {
+    background: #2a2312;
+    border-left: 4px solid #f0ad4e;
+    color: #f2d9a5;
+    padding: 12px 16px;
+    font-size: 14px;
+    margin: 16px 0;
+}
+
+/* Tarjetas de informacion (Mi rutina) */
+.tarjeta-info {
+    background: #0a0a0a;
+    border: 1px solid #333333;
+    padding: 24px 28px;
+    margin-bottom: 26px;
+}
+
+.tarjeta-info h3 {
+    color: #ffffff;
+    font-size: 22px;
+    margin-bottom: 6px;
+}
+
+.tarjeta-info .meta {
+    color: #888888;
+    font-size: 14px;
+    margin-bottom: 0;
+}
+
+.dato-linea {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 26px;
+    margin-top: 16px;
+}
+
+.dato-linea div {
+    font-size: 14px;
+    color: #c4c4c4;
+}
+
+.dato-linea span {
+    display: block;
+    color: #888888;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: .6px;
+    margin-bottom: 2px;
+}
+
+/* Lista de ejercicios de la rutina del cliente */
+.ejercicio-item {
+    background: #0a0a0a;
+    border: 1px solid #2a2a2a;
+    border-left: 3px solid #f36100;
+    padding: 18px 22px;
+    margin-bottom: 12px;
+}
+
+.ejercicio-item h4 {
+    color: #ffffff;
+    font-size: 17px;
+    margin: 0 0 4px 0;
+}
+
+.ejercicio-item .categoria {
+    color: #f36100;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: .6px;
+}
+
+.ejercicio-item .parametros {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 22px;
+    margin-top: 12px;
+    font-size: 14px;
+    color: #c4c4c4;
+}
+
+.ejercicio-item .parametros b {
+    color: #ffffff;
+}
+
+.ejercicio-item .indicaciones {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #999999;
+    font-style: italic;
+}
+
+.orden-numero {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    background: #f36100;
+    color: #ffffff;
+    border-radius: 50%;
+    font-size: 13px;
+    font-weight: 700;
+    margin-right: 10px;
+}
+
+/* Etiquetas de estado */
+.badge-estado {
+    display: inline-block;
+    padding: 4px 12px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .6px;
+    border-radius: 3px;
+}
+
+.badge-pendiente  { background: #2a2312; color: #f0ad4e; }
+.badge-enproceso  { background: #12202a; color: #5bc0de; }
+.badge-finalizada { background: #0f2318; color: #2eb872; }
+.badge-cancelada  { background: #2a1212; color: #d9534f; }
+
+.badge-completo     { background: #0f2318; color: #2eb872; }
+.badge-parcial      { background: #2a2312; color: #f0ad4e; }
+.badge-no_realizado { background: #2a1212; color: #d9534f; }
+
+/* Mensaje cuando no hay informacion */
+.mensaje-vacio {
+    background: #0a0a0a;
+    border: 1px dashed #333333;
+    padding: 46px 24px;
+    text-align: center;
+}
+
+.mensaje-vacio i {
+    font-size: 42px;
+    color: #444444;
+    display: block;
+    margin-bottom: 14px;
+}
+
+.mensaje-vacio h4 {
+    color: #ffffff;
+    font-size: 19px;
+    margin-bottom: 8px;
+}
+
+.mensaje-vacio p {
+    color: #888888;
+    font-size: 14px;
+    margin: 0;
+}
+
+/* Retroalimentacion del entrenador */
+.retro-admin {
+    background: #12202a;
+    border-left: 3px solid #5bc0de;
+    padding: 10px 14px;
+    margin-top: 8px;
+    font-size: 14px;
+    color: #c4c4c4;
+}
+
+.retro-admin b {
+    color: #5bc0de;
+    display: block;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: .6px;
+    margin-bottom: 3px;
+}
+
+/* DataTables sobre el tema oscuro */
+.dataTables_wrapper {
+    color: #c4c4c4;
+}
+
+.dataTables_wrapper .dataTables_filter input,
+.dataTables_wrapper .dataTables_length select {
+    background: #0a0a0a;
+    border: 1px solid #363636;
+    color: #ffffff;
+    padding: 5px 10px;
+    margin-left: 6px;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    color: #c4c4c4 !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current {
+    background: #f36100 !important;
+    border-color: #f36100 !important;
+    color: #ffffff !important;
+}
+
+.dataTables_wrapper .dataTables_info,
+.dataTables_wrapper .dataTables_length,
+.dataTables_wrapper .dataTables_filter {
+    padding: 10px 0;
+    font-size: 14px;
+}
+
+table.dataTable tbody tr { background: transparent; }
+
+@media only screen and (max-width: 767px) {
+    .dato-linea { gap: 14px; }
+    .acciones-formulario { flex-direction: column; align-items: stretch; }
+    .acciones-formulario .ml-10 { margin-left: 0 !important; }
+}
+
+/* Textos auxiliares */
+.ayuda-campo {
+    display: block;
+    margin-top: -10px;
+    margin-bottom: 14px;
+    font-size: 12px;
+    color: #888888;
+}
+
+.texto-tenue {
+    color: #777777;
+    font-size: 13px;
+}

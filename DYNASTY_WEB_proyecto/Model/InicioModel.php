@@ -7,9 +7,11 @@
         {
             $conn = OpenDB();
 
-            $credencial = $conn -> real_escape_string($credencial);
-            $sql = "CALL spIniciarSesion('$credencial')";
-            $response = $conn -> query($sql);
+            // Consulta parametrizada: evita cualquier riesgo de inyeccion (RNF01)
+            $stmt = $conn -> prepare("CALL spIniciarSesion(?)");
+            $stmt -> bind_param("s", $credencial);
+            $stmt -> execute();
+            $response = $stmt -> get_result();
 
             $datos = null;
             while($fila = $response -> fetch_assoc())
@@ -17,6 +19,7 @@
                 $datos = $fila;
             }
 
+            $stmt -> close();
             CloseDB($conn);
             return $datos;
         }

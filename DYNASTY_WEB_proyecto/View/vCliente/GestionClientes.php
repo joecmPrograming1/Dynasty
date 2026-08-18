@@ -93,7 +93,7 @@
 
             <!-- Listado -->
             <div class="tabla-scroll">
-                <table class="tabla-sistema">
+                <table class="tabla-sistema" id="tablaClientesLista">
                     <thead>
                         <tr>
                             <th>Identificación</th>
@@ -136,7 +136,7 @@
                                             onclick="editarCliente(this);">Editar</button>
 
                                         <form action="" method="post" class="form-inline"
-                                            onsubmit="return confirmarCambioEstado('¿Está seguro de que desea <?= $c["estado"] == 1 ? "desactivar" : "activar" ?> este cliente?');">
+                                            onsubmit="return confirmarEstado(this, '¿Está seguro de que desea <?= $c["estado"] == 1 ? "desactivar" : "activar" ?> este cliente?');">
                                             <input type="hidden" name="idCliente" value="<?= $c["id_cliente"] ?>">
                                             <input type="hidden" name="estado" value="<?= $c["estado"] == 1 ? 0 : 1 ?>">
                                             <button type="submit" name="btnCambiarEstadoCliente"

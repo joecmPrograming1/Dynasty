@@ -1,32 +1,46 @@
 <?php
     include_once $_SERVER['DOCUMENT_ROOT'] . '/Dynasty/DYNASTY_WEB_proyecto/Controller/UtilitarioController.php';
-    include_once $_SERVER['DOCUMENT_ROOT'] . '/Dynasty/DYNASTY_WEB_proyecto/Model/ClienteModel.php';
-    include_once $_SERVER['DOCUMENT_ROOT'] . '/Dynasty/DYNASTY_WEB_proyecto/Model/EjercicioModel.php';
+    include_once $_SERVER['DOCUMENT_ROOT'] . '/Dynasty/DYNASTY_WEB_proyecto/Model/ResumenModel.php';
+    include_once $_SERVER['DOCUMENT_ROOT'] . '/Dynasty/DYNASTY_WEB_proyecto/Model/AsignacionModel.php';
+    include_once $_SERVER['DOCUMENT_ROOT'] . '/Dynasty/DYNASTY_WEB_proyecto/Model/ProgresoModel.php';
 
     ValidarSesion();
 
-    // Devuelve los totales que muestra el panel administrativo.
-    // La vista solicita la informacion al controlador, no al modelo.
+    /**
+     * Resumen del panel administrativo.
+     * El controlador coordina; el acceso a datos vive en el modelo (RNF06).
+     */
     function ConsultarResumenPanel()
     {
-        $resumen = ["clientes" => 0, "ejercicios" => 0];
-
         if($_SESSION["Rol"] != "ADMINISTRADOR")
+        {
+            return ["clientes" => 0, "ejercicios" => 0, "rutinas" => 0, "asignaciones" => 0];
+        }
+
+        return ConsultarResumenModel();
+    }
+
+    /**
+     * Resumen del cliente: su rutina vigente y la cantidad de entrenamientos.
+     */
+    function ConsultarResumenCliente()
+    {
+        $resumen = ["rutina" => null, "entrenamientos" => 0];
+
+        if($_SESSION["Rol"] == "ADMINISTRADOR")
         {
             return $resumen;
         }
 
-        $clientes = ConsultarClientesModel();
-        foreach($clientes as $c)
+        $cliente = ConsultarClientePorUsuarioModel($_SESSION["IdUsuario"]);
+
+        if(!$cliente)
         {
-            if($c["estado"] == 1) { $resumen["clientes"]++; }
+            return $resumen;
         }
 
-        $ejercicios = ConsultarEjerciciosModel();
-        foreach($ejercicios as $e)
-        {
-            if($e["estado"] == 1) { $resumen["ejercicios"]++; }
-        }
+        $resumen["rutina"]         = ConsultarAsignacionActivaClienteModel($cliente["id_cliente"]);
+        $resumen["entrenamientos"] = count(ConsultarProgresoClienteModel($cliente["id_cliente"]));
 
         return $resumen;
     }

@@ -14,6 +14,7 @@ function ImportCSS()
         <link rel="stylesheet" href="/Dynasty/DYNASTY_WEB_proyecto/css/font-awesome.min.css" type="text/css">
         <link rel="stylesheet" href="/Dynasty/DYNASTY_WEB_proyecto/css/style.css" type="text/css">
         <link rel="stylesheet" href="/Dynasty/DYNASTY_WEB_proyecto/css/practica1.css" type="text/css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.min.css">
         <link rel="stylesheet" href="/Dynasty/DYNASTY_WEB_proyecto/css/dynasty.css" type="text/css">
         </head>
     ';
@@ -24,6 +25,8 @@ function ImportJS()
     echo '
         <script src="/Dynasty/DYNASTY_WEB_proyecto/js/jquery-3.3.1.min.js"></script>
         <script src="/Dynasty/DYNASTY_WEB_proyecto/js/bootstrap.min.js"></script>
+        <script src="https://cdn.datatables.net/2.1.8/js/dataTables.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script src="/Dynasty/DYNASTY_WEB_proyecto/js/dynasty.js"></script>
     ';
 }
