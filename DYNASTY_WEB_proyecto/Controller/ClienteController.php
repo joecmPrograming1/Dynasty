@@ -1,4 +1,12 @@
 <?php
+/* ============================================================
+ * Proyecto : Dynasty - Sistema de gestion de rutinas
+ * Curso    : Ambiente Web Cliente/Servidor (SC-502)
+ * Archivo  : ClienteController.php
+ * Proposito: Controlador de clientes. Consulta, edicion y activacion o desactivacion de los clientes.
+ * Requerim.: RF02
+ * ============================================================ */
+
     include_once $_SERVER['DOCUMENT_ROOT'] . '/Dynasty/DYNASTY_WEB_proyecto/Controller/UtilitarioController.php';
     include_once $_SERVER['DOCUMENT_ROOT'] . '/Dynasty/DYNASTY_WEB_proyecto/Model/ClienteModel.php';
     include_once $_SERVER['DOCUMENT_ROOT'] . '/Dynasty/DYNASTY_WEB_proyecto/Model/NivelModel.php';

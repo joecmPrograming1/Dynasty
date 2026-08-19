@@ -1,4 +1,11 @@
 <?php
+/* ============================================================
+ * Proyecto : Dynasty - Sistema de gestion de rutinas
+ * Curso    : Ambiente Web Cliente/Servidor (SC-502)
+ * Archivo  : IniciarSesion.php
+ * Proposito: Vista de ingreso. Formulario de inicio de sesion.
+ * ============================================================ */
+
     include_once $_SERVER['DOCUMENT_ROOT'] . '/Dynasty/DYNASTY_WEB_proyecto/Controller/InicioController.php';
     include_once $_SERVER['DOCUMENT_ROOT'] . '/Dynasty/DYNASTY_WEB_proyecto/View/LayoutExterno.php';
 
@@ -33,18 +40,10 @@
                         <p>Ingrese su identificación o correo electrónico y su contraseña para acceder al sistema.</p>
 
                         <?php
-                            if(isset($_POST["Mensaje"]))
-                            {
-                                echo '<div class="alerta alerta-error">' . $_POST["Mensaje"] . '</div>';
-                            }
-                            if(isset($_GET["salida"]))
-                            {
-                                echo '<div class="alerta alerta-exito">Ha cerrado sesión correctamente.</div>';
-                            }
-                            if(isset($_GET["registro"]))
-                            {
-                                echo '<div class="alerta alerta-exito">Su cuenta se creó correctamente. Ya puede iniciar sesión.</div>';
-                            }
+                            Alertas([
+                                "salida"   => "Ha cerrado sesión correctamente.",
+                                "registro" => "Su cuenta se creó correctamente. Ya puede iniciar sesión."
+                            ]);
                         ?>
 
                         <form action="" method="post" id="formIniciarSesion">

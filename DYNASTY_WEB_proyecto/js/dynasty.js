@@ -1,5 +1,13 @@
 'use strict';
 
+/* ============================================================
+ * Proyecto : Dynasty - Sistema de gestion de rutinas
+ * Curso    : Ambiente Web Cliente/Servidor (SC-502)
+ * Archivo  : dynasty.js
+ * Proposito: Funciones generales del sistema. Edicion en formularios, filtros, DataTables y confirmaciones.
+ * Requerim.: RF01, RF02, RF03
+ * ============================================================ */
+
 // Confirmación antes de desactivar registros (RF02/RF03)
 function confirmarCambioEstado(mensaje) {
     return confirm(mensaje);
@@ -87,23 +95,70 @@ function alternarContrasena(icono) {
 // DataTables y SweetAlert2 (tecnicas vistas en clase)
 // ============================================================
 
-$(document).ready(function () {
+/**
+ * Textos en espanol para DataTables.
+ * Se definen dentro del proyecto y no se descargan de un servidor externo,
+ * de manera que las tablas funcionan aunque no haya conexion a internet.
+ */
+var IDIOMA_TABLA = {
+    lengthMenu:   'Mostrar _MENU_ registros',
+    zeroRecords:  'No se encontraron resultados para la busqueda',
+    info:         'Mostrando del _START_ al _END_ de _TOTAL_ registros',
+    infoEmpty:    'Sin registros para mostrar',
+    infoFiltered: '(filtrado de _MAX_ registros en total)',
+    search:       'Buscar:',
+    emptyTable:   'Todavia no hay registros para mostrar',
+    paginate: {
+        first:    'Primero',
+        last:     'Ultimo',
+        next:     'Siguiente',
+        previous: 'Anterior'
+    }
+};
+
+function configuracionTabla(ultimaColumnaSinOrden) {
 
     var configuracion = {
         pageLength: 10,
         order: [],
-        language: {
-            url: 'https://cdn.datatables.net/plug-ins/2.1.8/i18n/es-ES.json'
-        },
-        columnDefs: [
-            { targets: -1, orderable: false, searchable: false }
-        ]
+        language: IDIOMA_TABLA
     };
 
+    if (ultimaColumnaSinOrden) {
+        configuracion.columnDefs = [
+            { targets: -1, orderable: false, searchable: false }
+        ];
+    }
+
+    return configuracion;
+}
+
+$(document).ready(function () {
+
     ['#tablaClientesLista', '#tablaEjercicios', '#tablaRutinas', '#tablaAsignaciones'].forEach(function (id) {
-        if ($(id).length) {
-            new DataTable(id, configuracion);
+
+        var tabla = $(id);
+
+        if (tabla.length === 0) {
+            return;
         }
+
+        // Resguardo: si una fila no tuviera la misma cantidad de celdas que el
+        // encabezado, DataTables no se inicializa para evitar el aviso de la libreria.
+        var columnas = tabla.find('thead th').length;
+        var desigual = false;
+
+        tabla.find('tbody tr').each(function () {
+            if ($(this).children('td').length !== columnas) {
+                desigual = true;
+            }
+        });
+
+        if (desigual) {
+            return;
+        }
+
+        new DataTable(id, configuracionTabla(true));
     });
 
 });

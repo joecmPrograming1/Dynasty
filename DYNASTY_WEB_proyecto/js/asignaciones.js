@@ -1,8 +1,12 @@
 'use strict';
 
-// ============================================================
-// RF05 - Asignacion de rutinas
-// ============================================================
+/* ============================================================
+ * Proyecto : Dynasty - Sistema de gestion de rutinas
+ * Curso    : Ambiente Web Cliente/Servidor (SC-502)
+ * Archivo  : asignaciones.js
+ * Proposito: Asignacion de rutinas. Validacion de fechas y cambio de estado de una asignacion.
+ * Requerim.: RF05, RF08
+ * ============================================================ */
 
 function mostrarFormAsignacion() {
     var f = document.getElementById('formAsignacion');

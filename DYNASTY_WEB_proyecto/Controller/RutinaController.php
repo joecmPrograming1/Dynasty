@@ -1,4 +1,12 @@
 <?php
+/* ============================================================
+ * Proyecto : Dynasty - Sistema de gestion de rutinas
+ * Curso    : Ambiente Web Cliente/Servidor (SC-502)
+ * Archivo  : RutinaController.php
+ * Proposito: Controlador de rutinas. Creacion y edicion de rutinas con su detalle de ejercicios.
+ * Requerim.: RF04
+ * ============================================================ */
+
     include_once $_SERVER['DOCUMENT_ROOT'] . '/Dynasty/DYNASTY_WEB_proyecto/Controller/UtilitarioController.php';
     include_once $_SERVER['DOCUMENT_ROOT'] . '/Dynasty/DYNASTY_WEB_proyecto/Model/RutinaModel.php';
     include_once $_SERVER['DOCUMENT_ROOT'] . '/Dynasty/DYNASTY_WEB_proyecto/Model/NivelModel.php';

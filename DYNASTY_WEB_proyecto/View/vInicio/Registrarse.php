@@ -1,4 +1,11 @@
 <?php
+/* ============================================================
+ * Proyecto : Dynasty - Sistema de gestion de rutinas
+ * Curso    : Ambiente Web Cliente/Servidor (SC-502)
+ * Archivo  : Registrarse.php
+ * Proposito: Vista de registro. Formulario publico de creacion de cuenta de cliente.
+ * ============================================================ */
+
     include_once $_SERVER['DOCUMENT_ROOT'] . '/Dynasty/DYNASTY_WEB_proyecto/Controller/InicioController.php';
     include_once $_SERVER['DOCUMENT_ROOT'] . '/Dynasty/DYNASTY_WEB_proyecto/View/LayoutExterno.php';
 
@@ -10,8 +17,15 @@
     }
 
     // Conserva lo digitado si el registro falla
-    $v = isset($_POST["Datos"]) ? $_POST["Datos"] : [];
-    function old($v, $k) { return isset($v[$k]) ? htmlspecialchars($v[$k]) : ""; }
+    $datosPrevios = isset($_POST["Datos"]) ? $_POST["Datos"] : [];
+
+    /**
+     * Devuelve el valor digitado previamente en un campo, ya codificado.
+     */
+    function ValorPrevio($datos, $campo)
+    {
+        return isset($datos[$campo]) ? htmlspecialchars($datos[$campo]) : "";
+    }
 
     // Los niveles se consultan a la base de datos por medio del controlador
     $niveles = ConsultarNivelesRegistro();
@@ -39,34 +53,29 @@
                     <div class="auth-card">
                         <p>Regístrese con sus datos para acceder a sus rutinas y registrar su progreso. Su cuenta se crea automáticamente como cliente.</p>
 
-                        <?php
-                            if(isset($_POST["Mensaje"]))
-                            {
-                                echo '<div class="alerta alerta-error">' . $_POST["Mensaje"] . '</div>';
-                            }
-                        ?>
+                        <?php Alertas(); ?>
 
                         <form action="" method="post" id="formRegistrarse">
                             <div class="form-registro">
                                 <div class="campo">
                                     <label>Identificación *</label>
-                                    <input type="text" name="identificacion" maxlength="25" value="<?= old($v,'identificacion') ?>" required>
+                                    <input type="text" name="identificacion" maxlength="25" value="<?= ValorPrevio($datosPrevios, 'identificacion') ?>" required>
                                 </div>
                                 <div class="campo">
                                     <label>Nombre *</label>
-                                    <input type="text" name="nombre" maxlength="80" value="<?= old($v,'nombre') ?>" required>
+                                    <input type="text" name="nombre" maxlength="80" value="<?= ValorPrevio($datosPrevios, 'nombre') ?>" required>
                                 </div>
                                 <div class="campo">
                                     <label>Apellidos *</label>
-                                    <input type="text" name="apellidos" maxlength="120" value="<?= old($v,'apellidos') ?>" required>
+                                    <input type="text" name="apellidos" maxlength="120" value="<?= ValorPrevio($datosPrevios, 'apellidos') ?>" required>
                                 </div>
                                 <div class="campo">
                                     <label>Correo electrónico *</label>
-                                    <input type="email" name="correo" maxlength="150" value="<?= old($v,'correo') ?>" required>
+                                    <input type="email" name="correo" maxlength="150" value="<?= ValorPrevio($datosPrevios, 'correo') ?>" required>
                                 </div>
                                 <div class="campo">
                                     <label>Teléfono</label>
-                                    <input type="text" name="telefono" maxlength="20" value="<?= old($v,'telefono') ?>">
+                                    <input type="text" name="telefono" maxlength="20" value="<?= ValorPrevio($datosPrevios, 'telefono') ?>">
                                 </div>
                                 <div class="campo">
                                     <label>Contraseña *</label>
@@ -77,23 +86,23 @@
                                 </div>
                                 <div class="campo">
                                     <label>Objetivo principal *</label>
-                                    <input type="text" name="objetivo" maxlength="180" value="<?= old($v,'objetivo') ?>" placeholder="Ej: Bajar de peso" required>
+                                    <input type="text" name="objetivo" maxlength="180" value="<?= ValorPrevio($datosPrevios, 'objetivo') ?>" placeholder="Ej: Bajar de peso" required>
                                 </div>
                                 <div class="campo">
                                     <label>Nivel *</label>
                                     <select name="nivel" required>
                                         <?php foreach($niveles as $n): ?>
-                                            <option value="<?= $n['codigo_nivel'] ?>" <?= old($v,'nivel')==$n['codigo_nivel']?'selected':'' ?>><?= $n['descripcion'] ?></option>
+                                            <option value="<?= htmlspecialchars($n['codigo_nivel']) ?>" <?= ValorPrevio($datosPrevios, 'nivel')==$n['codigo_nivel']?'selected':'' ?>><?= htmlspecialchars($n['descripcion']) ?></option>
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
                                 <div class="campo">
                                     <label>Disponibilidad semanal *</label>
-                                    <input type="text" name="disponibilidad" maxlength="120" value="<?= old($v,'disponibilidad') ?>" placeholder="Ej: 3 días por semana" required>
+                                    <input type="text" name="disponibilidad" maxlength="120" value="<?= ValorPrevio($datosPrevios, 'disponibilidad') ?>" placeholder="Ej: 3 días por semana" required>
                                 </div>
                                 <div class="campo col-full">
                                     <label>Observaciones</label>
-                                    <textarea name="observaciones" maxlength="500"><?= old($v,'observaciones') ?></textarea>
+                                    <textarea name="observaciones" maxlength="500"><?= ValorPrevio($datosPrevios, 'observaciones') ?></textarea>
                                 </div>
                             </div>
 

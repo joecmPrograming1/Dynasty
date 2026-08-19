@@ -1,4 +1,12 @@
 <?php
+/* ============================================================
+ * Proyecto : Dynasty - Sistema de gestion de rutinas
+ * Curso    : Ambiente Web Cliente/Servidor (SC-502)
+ * Archivo  : ClienteModel.php
+ * Proposito: Modelo de clientes. Acceso a datos del perfil deportivo de los clientes.
+ * Requerim.: RF02
+ * ============================================================ */
+
     include_once $_SERVER['DOCUMENT_ROOT'] . '/Dynasty/DYNASTY_WEB_proyecto/Model/UtilitarioModel.php';
 
     function RegistrarClienteModel($identificacion, $nombre, $apellidos, $correo, $telefono, $contrasenaHash, $objetivo, $nivel, $disponibilidad, $observaciones)

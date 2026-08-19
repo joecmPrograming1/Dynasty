@@ -1,4 +1,11 @@
 <?php
+/* ============================================================
+ * Proyecto : Dynasty - Sistema de gestion de rutinas
+ * Curso    : Ambiente Web Cliente/Servidor (SC-502)
+ * Archivo  : MiProgreso.php
+ * Proposito: Vista Mi progreso. Registro e historial de entrenamientos del cliente.
+ * ============================================================ */
+
     include_once $_SERVER['DOCUMENT_ROOT'] . '/Dynasty/DYNASTY_WEB_proyecto/Controller/ProgresoController.php';
     include_once $_SERVER['DOCUMENT_ROOT'] . '/Dynasty/DYNASTY_WEB_proyecto/View/LayoutInterno.php';
 
@@ -19,7 +26,7 @@
     ?>
 
     <section class="seccion-sistema">
-        <div class="container">
+        <div class="container-fluid">
 
             <?php
                 Alertas([
@@ -31,7 +38,7 @@
             <?php if($rutina): ?>
 
                 <div class="row">
-                    <div class="col-lg-5">
+                    <div class="col-12">
                         <div class="form-sistema">
                             <h3>Registrar entrenamiento</h3>
                             <p class="nota-formulario">
@@ -41,34 +48,45 @@
                             <form action="" method="post" id="formProgreso">
                                 <input type="hidden" name="idAsignacion" value="<?= $rutina["id_asignacion"] ?>">
 
-                                <label>Fecha del entrenamiento *</label>
-                                <input type="date" name="fechaEntrenamiento" id="fechaEntrenamiento"
-                                       min="<?= $rutina["fecha_inicio"] ?>"
-                                       max="<?= date("Y-m-d") ?>"
-                                       value="<?= date("Y-m-d") ?>" required>
-
-                                <label>Cumplimiento *</label>
-                                <select name="cumplimiento" required>
-                                    <option value="COMPLETO">Completo</option>
-                                    <option value="PARCIAL">Parcial</option>
-                                    <option value="NO_REALIZADO">No realizado</option>
-                                </select>
-
-                                <label>Percepcion de esfuerzo (1 a 10) *</label>
-                                <input type="number" name="esfuerzo" min="1" max="10" value="5" required>
-
-                                <label>Duracion (minutos)</label>
-                                <input type="number" name="duracion" min="0" max="600">
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-6">
+                                        <label>Fecha del entrenamiento *</label>
+                                        <input type="date" name="fechaEntrenamiento" id="fechaEntrenamiento"
+                                               min="<?= $rutina["fecha_inicio"] ?>"
+                                               max="<?= date("Y-m-d") ?>"
+                                               value="<?= date("Y-m-d") ?>" required>
+                                    </div>
+                                    <div class="col-lg-3 col-md-6">
+                                        <label>Cumplimiento *</label>
+                                        <select name="cumplimiento" required>
+                                            <option value="COMPLETO">Completo</option>
+                                            <option value="PARCIAL">Parcial</option>
+                                            <option value="NO_REALIZADO">No realizado</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-3 col-md-6">
+                                        <label>Percepcion de esfuerzo (1 a 10) *</label>
+                                        <input type="number" name="esfuerzo" min="1" max="10" value="5" required>
+                                    </div>
+                                    <div class="col-lg-3 col-md-6">
+                                        <label>Duracion (minutos)</label>
+                                        <input type="number" name="duracion" min="0" max="600">
+                                    </div>
+                                </div>
 
                                 <label>Comentario</label>
                                 <textarea name="comentario" maxlength="500"></textarea>
 
-                                <button type="submit" name="btnRegistrarProgreso" class="site-btn">Guardar entrenamiento</button>
+                                <div class="acciones-formulario">
+                                    <button type="submit" name="btnRegistrarProgreso" class="site-btn">Guardar entrenamiento</button>
+                                </div>
                             </form>
                         </div>
                     </div>
+                </div>
 
-                    <div class="col-lg-7">
+                <div class="row">
+                    <div class="col-12">
                         <div class="section-title">
                             <span>Historial</span>
                             <h2>Mis entrenamientos</h2>
@@ -145,7 +163,7 @@
         FooterExterno();
         ImportJS();
     ?>
-    <script src="/Dynasty/DYNASTY_WEB_proyecto/js/progreso.js"></script>
+    <script src="/Dynasty/DYNASTY_WEB_proyecto/js/progreso.js?v=8"></script>
 
 </body>
 </html>

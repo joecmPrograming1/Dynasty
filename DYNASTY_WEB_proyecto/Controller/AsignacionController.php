@@ -1,4 +1,12 @@
 <?php
+/* ============================================================
+ * Proyecto : Dynasty - Sistema de gestion de rutinas
+ * Curso    : Ambiente Web Cliente/Servidor (SC-502)
+ * Archivo  : AsignacionController.php
+ * Proposito: Controlador de asignaciones. Asigna rutinas a los clientes y administra el estado de cada asignacion.
+ * Requerim.: RF05, RF08
+ * ============================================================ */
+
     include_once $_SERVER['DOCUMENT_ROOT'] . '/Dynasty/DYNASTY_WEB_proyecto/Controller/UtilitarioController.php';
     include_once $_SERVER['DOCUMENT_ROOT'] . '/Dynasty/DYNASTY_WEB_proyecto/Model/AsignacionModel.php';
 

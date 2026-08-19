@@ -49,6 +49,7 @@ CREATE TABLE `asignacion_rutina` (
 
 LOCK TABLES `asignacion_rutina` WRITE;
 /*!40000 ALTER TABLE `asignacion_rutina` DISABLE KEYS */;
+INSERT INTO `asignacion_rutina` VALUES (1,1,1,'2026-08-01','2026-08-03','2026-09-03','EN_PROCESO','Primera rutina de Ana. Revisar la tecnica de sentadilla la proxima sesion.'),(2,2,2,'2026-08-08','2026-08-10',NULL,'EN_PROCESO','Carlos ya domina los basicos. Se sube la carga de forma progresiva.'),(3,3,3,'2026-06-01','2026-06-01','2026-07-01','FINALIZADA','Ciclo completado. Maria mejoro su resistencia de forma notable.'),(4,3,1,'2026-08-15','2026-08-20',NULL,'PENDIENTE','Nuevo ciclo. Arranca la proxima semana.'),(5,4,4,'2026-08-03','2026-08-05','2026-10-05','EN_PROCESO','Diego entrena para una carrera recreativa en octubre.'),(6,2,3,'2026-04-10','2026-04-12','2026-05-12','CANCELADA','Se cancela por una lesion leve. Se retoma mas adelante.');
 /*!40000 ALTER TABLE `asignacion_rutina` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -186,6 +187,7 @@ CREATE TABLE `registro_progreso` (
 
 LOCK TABLES `registro_progreso` WRITE;
 /*!40000 ALTER TABLE `registro_progreso` DISABLE KEYS */;
+INSERT INTO `registro_progreso` VALUES (1,1,'2026-08-03','2026-08-03 18:40:00','COMPLETO',6,55,'Termine toda la rutina. La sentadilla me costo al inicio.','Muy bien para ser la primera sesion. Bajar un poco el peso y cuidar la espalda.','2026-08-04 08:15:00'),(2,1,'2026-08-05','2026-08-05 19:05:00','COMPLETO',5,50,'Me senti mas comoda hoy.','Excelente. Mantener ese ritmo.','2026-08-06 07:50:00'),(3,1,'2026-08-07','2026-08-07 18:20:00','PARCIAL',7,35,'Solo alcance a hacer tres ejercicios por falta de tiempo.',NULL,NULL),(4,1,'2026-08-10','2026-08-10 17:55:00','COMPLETO',6,58,'Rutina completa. La plancha ya la aguanto los 30 segundos.','Perfecto, la proxima semana subimos a 40 segundos.','2026-08-11 09:10:00'),(5,1,'2026-08-12','2026-08-12 18:30:00','NO_REALIZADO',1,NULL,'No pude asistir por trabajo.',NULL,NULL),(6,1,'2026-08-14','2026-08-14 18:45:00','COMPLETO',7,60,'Recupere la sesion que perdi.',NULL,NULL),(7,2,'2026-08-10','2026-08-10 20:10:00','COMPLETO',8,70,'Buena sesion. El press de banca lo senti pesado.','Normal al subir la carga. Mantener el peso una semana mas.','2026-08-11 09:20:00'),(8,2,'2026-08-12','2026-08-12 20:00:00','COMPLETO',7,65,'Todo bien hoy.',NULL,NULL),(9,2,'2026-08-15','2026-08-15 19:40:00','PARCIAL',9,45,'Me quedaron pendientes las planchas.','Sin problema. Prioriza siempre los ejercicios con barra.','2026-08-16 08:05:00'),(10,3,'2026-06-05','2026-06-05 07:30:00','COMPLETO',5,40,'Primera semana del ciclo.','Buen arranque.','2026-06-06 08:00:00'),(11,3,'2026-06-15','2026-06-15 07:25:00','COMPLETO',6,45,'Ya me cuesta menos la cuerda.','Se nota la mejora.','2026-06-16 08:10:00'),(12,3,'2026-06-28','2026-06-28 07:40:00','COMPLETO',5,50,'Cierre del ciclo. Muy contenta con el resultado.','Felicitaciones Maria. Pasamos al siguiente nivel.','2026-06-29 09:00:00'),(13,5,'2026-08-05','2026-08-05 06:15:00','COMPLETO',8,80,'Rutina exigente pero la complete.','Buen trabajo. Cuidar el descanso entre series.','2026-08-06 07:30:00'),(14,5,'2026-08-08','2026-08-08 06:20:00','COMPLETO',9,85,'Los burpees me dejaron sin aire.',NULL,NULL),(15,5,'2026-08-12','2026-08-12 06:10:00','PARCIAL',10,60,'Baje la carga en sentadilla, venia cansado.','Hiciste bien en bajar la carga. Escucha al cuerpo.','2026-08-13 07:45:00');
 /*!40000 ALTER TABLE `registro_progreso` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -242,6 +244,7 @@ CREATE TABLE `rutina` (
 
 LOCK TABLES `rutina` WRITE;
 /*!40000 ALTER TABLE `rutina` DISABLE KEYS */;
+INSERT INTO `rutina` VALUES (1,'Iniciacion general','Acondicionamiento basico de cuerpo completo','PRINCIPIANTE','Rutina de entrada para personas que retoman el ejercicio. Se trabaja todo el cuerpo con cargas moderadas y descansos amplios.','2026-07-05 09:00:00',1),(2,'Fuerza intermedia','Aumento de fuerza en tren superior e inferior','INTERMEDIO','Rutina de fuerza con series mas largas. Requiere dominar la tecnica de los ejercicios basicos con barra.','2026-07-05 09:20:00',1),(3,'Resistencia cardiovascular','Mejorar la capacidad aerobica','PRINCIPIANTE','Rutina enfocada en trabajo continuo de baja carga. Util para bajar de peso y ganar resistencia.','2026-07-08 15:10:00',1),(4,'Fuerza avanzada','Desarrollo de fuerza maxima y potencia','AVANZADO','Rutina exigente para clientes con experiencia. Combina cargas altas con trabajo de potencia.','2026-07-12 11:45:00',1),(5,'Core y estabilidad','Fortalecer la zona media','PRINCIPIANTE','Rutina corta de complemento. Se puede aplicar al final de otra sesion de entrenamiento.','2026-07-20 08:30:00',0);
 /*!40000 ALTER TABLE `rutina` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -278,6 +281,7 @@ CREATE TABLE `rutina_ejercicio` (
 
 LOCK TABLES `rutina_ejercicio` WRITE;
 /*!40000 ALTER TABLE `rutina_ejercicio` DISABLE KEYS */;
+INSERT INTO `rutina_ejercicio` VALUES (1,1,1,3,12,NULL,90,'Bajar hasta que el muslo quede paralelo al suelo.',1),(2,1,5,3,12,NULL,60,'Un brazo a la vez, apoyando la mano libre en el banco.',2),(3,1,3,3,NULL,30,45,'Mantener la cadera alineada con los hombros.',3),(4,1,6,2,NULL,60,60,'Ritmo constante, sin sprints.',4),(5,2,1,4,10,NULL,120,'Aumentar el peso solo si la tecnica se mantiene.',1),(6,2,2,4,8,NULL,120,'Bajar la barra controlando el movimiento.',2),(7,2,5,3,10,NULL,90,'Contraer la espalda al final del recorrido.',3),(8,2,3,3,NULL,45,45,'Sumar cinco segundos por semana.',4),(9,3,6,4,NULL,120,60,'Cuatro bloques de dos minutos.',1),(10,3,4,3,10,NULL,90,'Si el salto molesta, sustituir por paso al frente.',2),(11,3,3,2,NULL,30,45,'Cerrar la sesion con trabajo de abdomen.',3),(12,4,1,5,6,NULL,150,'Trabajo con carga alta. Usar seguros en el rack.',1),(13,4,2,5,6,NULL,150,'Solicitar acompanamiento en la ultima serie.',2),(14,4,5,4,8,NULL,120,'Mantener el torso firme durante todo el movimiento.',3),(15,4,4,4,15,NULL,90,'Ejecutar a maxima velocidad manteniendo la tecnica.',4),(16,4,3,3,NULL,60,60,'Cierre de la sesion.',5),(17,5,3,4,NULL,40,40,'Progresar hasta un minuto por serie.',1),(18,5,4,2,8,NULL,60,'Version suave, sin salto.',2);
 /*!40000 ALTER TABLE `rutina_ejercicio` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -339,7 +343,7 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES (1,1,'119564317','Administrador','Dynasty','admin@dynasty.com','','$2y$10$/mYutOLvgpIaUlYsM564c.kQc0MLRyXYqPTR4M2XlaDcufYGNEeZe','2026-07-21 20:12:16',1),(2,2,'118820456','Ana','Jimenez Rojas','ana.jimenez@gmail.com','88012345','$2y$10$xBKHHfjFo219gSzP4m13..FmKVBJ/evl9hlZtwgJP2y5POQHxFePe','2026-07-21 20:12:16',1),(3,2,'205430876','Carlos','Mora Vargas','carlos.mora@gmail.com','87654321','$2y$10$xBKHHfjFo219gSzP4m13..FmKVBJ/evl9hlZtwgJP2y5POQHxFePe','2026-07-21 20:12:16',1),(4,2,'113450987','Maria','Solis Campos','maria.solis@gmail.com','86009988','$2y$10$xBKHHfjFo219gSzP4m13..FmKVBJ/evl9hlZtwgJP2y5POQHxFePe','2026-07-21 20:12:16',1),(5,2,'304560123','Diego','Herrera Nunez','diego.herrera@gmail.com','83221100','$2y$10$xBKHHfjFo219gSzP4m13..FmKVBJ/evl9hlZtwgJP2y5POQHxFePe','2026-07-21 20:12:16',1);
+INSERT INTO `usuario` VALUES (1,1,'119564317','Administrador','Dynasty','admin@dynasty.com','','$2y$10$/mYutOLvgpIaUlYsM564c.kQc0MLRyXYqPTR4M2XlaDcufYGNEeZe','2026-07-21 20:12:16',1),(2,2,'118820456','Ana','Jimenez Rojas','ana.jimenez@gmail.com','88012345','$2y$10$OGPvmQxHrQMNfhh09q.06O/JX1lQARgXDy6uOcDdgjCdmpznMohJ2','2026-07-21 20:12:16',1),(3,2,'205430876','Carlos','Mora Vargas','carlos.mora@gmail.com','87654321','$2y$10$OGPvmQxHrQMNfhh09q.06O/JX1lQARgXDy6uOcDdgjCdmpznMohJ2','2026-07-21 20:12:16',1),(4,2,'113450987','Maria','Solis Campos','maria.solis@gmail.com','86009988','$2y$10$OGPvmQxHrQMNfhh09q.06O/JX1lQARgXDy6uOcDdgjCdmpznMohJ2','2026-07-21 20:12:16',1),(5,2,'304560123','Diego','Herrera Nunez','diego.herrera@gmail.com','83221100','$2y$10$OGPvmQxHrQMNfhh09q.06O/JX1lQARgXDy6uOcDdgjCdmpznMohJ2','2026-07-21 20:12:16',1);
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -795,38 +799,6 @@ BEGIN
     SELECT id_ejercicio, nombre_ejercicio, categoria, descripcion, equipo_requerido, estado
     FROM ejercicio
     ORDER BY nombre_ejercicio;
-END ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP PROCEDURE IF EXISTS `spConsultarProgresoAsignacion` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `spConsultarProgresoAsignacion`(
-    pIdAsignacion int unsigned
-)
-BEGIN
-    SELECT  id_progreso,
-            fecha_entrenamiento,
-            fecha_registro,
-            estado_cumplimiento,
-            percepcion_esfuerzo,
-            duracion_minutos,
-            comentario_cliente,
-            comentario_admin,
-            fecha_retroalimentacion
-    FROM    registro_progreso
-    WHERE   id_asignacion = pIdAsignacion
-    ORDER BY fecha_entrenamiento DESC;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;

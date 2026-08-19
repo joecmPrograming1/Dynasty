@@ -1,19 +1,17 @@
 'use strict';
 
-// ============================================================
-// RF07 - Registro de progreso del cliente
-// ============================================================
+/* ============================================================
+ * Proyecto : Dynasty - Sistema de gestion de rutinas
+ * Curso    : Ambiente Web Cliente/Servidor (SC-502)
+ * Archivo  : progreso.js
+ * Proposito: Registro de progreso. Validaciones del formulario de entrenamiento del cliente.
+ * Requerim.: RF07
+ * ============================================================ */
 
 $(document).ready(function () {
 
     if ($('#tablaProgreso').length) {
-        new DataTable('#tablaProgreso', {
-            pageLength: 10,
-            order: [],
-            language: {
-                url: 'https://cdn.datatables.net/plug-ins/2.1.8/i18n/es-ES.json'
-            }
-        });
+        new DataTable('#tablaProgreso', configuracionTabla(false));
     }
 
     $('#formProgreso').on('submit', function (evento) {

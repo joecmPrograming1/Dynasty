@@ -1,6 +1,14 @@
 <?php
+/* ============================================================
+ * Proyecto : Dynasty - Sistema de gestion de rutinas
+ * Curso    : Ambiente Web Cliente/Servidor (SC-502)
+ * Archivo  : UtilitarioModel.php
+ * Proposito: Utilitarios de datos. Conexion a la base de datos y registro de errores.
+ * Requerim.: RNF01, RNF05
+ * ============================================================ */
 
-    if(session_status() == PHP_SESSION_NONE){
+    if(session_status() == PHP_SESSION_NONE)
+    {
         session_start();
     }
 

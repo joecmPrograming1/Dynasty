@@ -1,8 +1,12 @@
 'use strict';
 
-// ============================================================
-// RF08 - Seguimiento y retroalimentacion
-// ============================================================
+/* ============================================================
+ * Proyecto : Dynasty - Sistema de gestion de rutinas
+ * Curso    : Ambiente Web Cliente/Servidor (SC-502)
+ * Archivo  : seguimiento.js
+ * Proposito: Seguimiento. Formulario de retroalimentacion del entrenador.
+ * Requerim.: RF08
+ * ============================================================ */
 
 function abrirRetroalimentacion(idProgreso, cliente, comentario) {
     document.getElementById('idProgresoRetro').value      = idProgreso;
@@ -23,13 +27,7 @@ function cerrarRetroalimentacion() {
 $(document).ready(function () {
 
     if ($('#tablaSeguimiento').length) {
-        new DataTable('#tablaSeguimiento', {
-            pageLength: 10,
-            order: [],
-            language: {
-                url: 'https://cdn.datatables.net/plug-ins/2.1.8/i18n/es-ES.json'
-            }
-        });
+        new DataTable('#tablaSeguimiento', configuracionTabla(true));
     }
 
 });

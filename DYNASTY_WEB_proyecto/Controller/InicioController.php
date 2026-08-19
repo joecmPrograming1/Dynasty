@@ -1,4 +1,12 @@
 <?php
+/* ============================================================
+ * Proyecto : Dynasty - Sistema de gestion de rutinas
+ * Curso    : Ambiente Web Cliente/Servidor (SC-502)
+ * Archivo  : InicioController.php
+ * Proposito: Controlador de acceso. Registro publico, inicio de sesion y recuperacion de contrasena.
+ * Requerim.: RF01, RF02
+ * ============================================================ */
+
     include_once $_SERVER['DOCUMENT_ROOT'] . '/Dynasty/DYNASTY_WEB_proyecto/Controller/UtilitarioController.php';
     include_once $_SERVER['DOCUMENT_ROOT'] . '/Dynasty/DYNASTY_WEB_proyecto/Model/InicioModel.php';
     include_once $_SERVER['DOCUMENT_ROOT'] . '/Dynasty/DYNASTY_WEB_proyecto/Model/UsuarioModel.php';
@@ -48,7 +56,7 @@
 
             if($resultado)
             {
-                header("Location: IniciarSesion.php?registro=1");
+                header("Location: IniciarSesion.php?exito=registro");
                 exit();
             }
 
@@ -101,7 +109,7 @@
             if($usuario)
             {
                 // Se genera una contraseña temporal y se envía por correo (patrón del curso)
-                $contrasenaTemporal = generarContrasena();
+                $contrasenaTemporal = GenerarContrasena();
                 $contrasenaHash = password_hash($contrasenaTemporal, PASSWORD_DEFAULT);
 
                 $resultado = ActualizarContrasenaModel($usuario["id_usuario"], $contrasenaHash);

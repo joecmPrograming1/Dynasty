@@ -1,4 +1,11 @@
 <?php
+/* ============================================================
+ * Proyecto : Dynasty - Sistema de gestion de rutinas
+ * Curso    : Ambiente Web Cliente/Servidor (SC-502)
+ * Archivo  : MiRutina.php
+ * Proposito: Vista Mi rutina. Consulta de la rutina vigente del cliente.
+ * ============================================================ */
+
     include_once $_SERVER['DOCUMENT_ROOT'] . '/Dynasty/DYNASTY_WEB_proyecto/Controller/ProgresoController.php';
     include_once $_SERVER['DOCUMENT_ROOT'] . '/Dynasty/DYNASTY_WEB_proyecto/View/LayoutInterno.php';
 
@@ -18,7 +25,7 @@
     ?>
 
     <section class="seccion-sistema">
-        <div class="container">
+        <div class="container-fluid">
 
             <?php Alertas(); ?>
 
@@ -74,6 +81,7 @@
                 </div>
 
                 <?php if(count($rutina["ejercicios"]) > 0): ?>
+                    <div class="lista-ejercicios">
                     <?php foreach($rutina["ejercicios"] as $e): ?>
                         <div class="ejercicio-item">
                             <h4>
@@ -101,6 +109,7 @@
                             <?php endif; ?>
                         </div>
                     <?php endforeach; ?>
+                    </div>
 
                     <div class="acciones-formulario">
                         <a href="/Dynasty/DYNASTY_WEB_proyecto/View/vProgreso/MiProgreso.php" class="site-btn">

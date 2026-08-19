@@ -1,4 +1,12 @@
 <?php
+/* ============================================================
+ * Proyecto : Dynasty - Sistema de gestion de rutinas
+ * Curso    : Ambiente Web Cliente/Servidor (SC-502)
+ * Archivo  : RutinaModel.php
+ * Proposito: Modelo de rutinas. Acceso a datos de las rutinas y su detalle de ejercicios.
+ * Requerim.: RF04
+ * ============================================================ */
+
     include_once $_SERVER['DOCUMENT_ROOT'] . '/Dynasty/DYNASTY_WEB_proyecto/Model/UtilitarioModel.php';
 
     /**
@@ -129,7 +137,7 @@
             }
 
             // Detalle de ejercicios
-            foreach($ejercicios as $orden => $ejercicio)
+            foreach($ejercicios as $ejercicio)
             {
                 $stmt = $conn -> prepare("CALL spAgregarEjercicioRutina(?,?,?,?,?,?,?,?)");
                 $stmt -> bind_param("iiiiiisi",

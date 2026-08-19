@@ -1,4 +1,12 @@
 <?php
+/* ============================================================
+ * Proyecto : Dynasty - Sistema de gestion de rutinas
+ * Curso    : Ambiente Web Cliente/Servidor (SC-502)
+ * Archivo  : AsignacionModel.php
+ * Proposito: Modelo de asignaciones. Acceso a datos de las asignaciones de rutinas.
+ * Requerim.: RF05, RF06, RF08
+ * ============================================================ */
+
     include_once $_SERVER['DOCUMENT_ROOT'] . '/Dynasty/DYNASTY_WEB_proyecto/Model/UtilitarioModel.php';
 
     /**

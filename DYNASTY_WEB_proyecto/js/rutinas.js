@@ -1,16 +1,19 @@
 'use strict';
 
-// ============================================================
-// RF04 - Gestion de rutinas
-// Construccion dinamica del detalle de ejercicios
-// ============================================================
+/* ============================================================
+ * Proyecto : Dynasty - Sistema de gestion de rutinas
+ * Curso    : Ambiente Web Cliente/Servidor (SC-502)
+ * Archivo  : rutinas.js
+ * Proposito: Gestion de rutinas. Construccion dinamica del detalle de ejercicios de una rutina.
+ * Requerim.: RF04
+ * ============================================================ */
 
 var contadorFilas = 0;
 
 /**
  * Devuelve las opciones del selector de ejercicios.
  */
-function OpcionesEjercicios(seleccionado) {
+function opcionesEjercicios(seleccionado) {
     var html = '<option value="">Seleccione un ejercicio</option>';
 
     EJERCICIOS.forEach(function (e) {
@@ -34,7 +37,7 @@ function agregarFilaDetalle(datos) {
     var fila = document.createElement('tr');
     fila.innerHTML =
         '<td><input type="number" name="orden[]" min="1" value="' + orden + '" required></td>' +
-        '<td><select name="idEjercicio[]" required>' + OpcionesEjercicios(d.id_ejercicio) + '</select></td>' +
+        '<td><select name="idEjercicio[]" required>' + opcionesEjercicios(d.id_ejercicio) + '</select></td>' +
         '<td><input type="number" name="series[]" min="1" max="20" value="' + (d.series || '') + '" required></td>' +
         '<td><input type="number" name="repeticiones[]" min="1" value="' + (d.repeticiones || '') + '"></td>' +
         '<td><input type="number" name="duracion[]" min="1" value="' + (d.duracion_segundos || '') + '"></td>' +

@@ -1,6 +1,14 @@
 <?php
+/* ============================================================
+ * Proyecto : Dynasty - Sistema de gestion de rutinas
+ * Curso    : Ambiente Web Cliente/Servidor (SC-502)
+ * Archivo  : UtilitarioController.php
+ * Proposito: Utilitarios del sistema. Control de sesion, autorizacion por rol y envio de correo.
+ * Requerim.: RF01, RNF01
+ * ============================================================ */
 
-    if(session_status() == PHP_SESSION_NONE){
+    if(session_status() == PHP_SESSION_NONE)
+    {
         session_start();
     }
 
@@ -34,17 +42,18 @@
     {
         session_unset();
         session_destroy();
-        header("Location: /Dynasty/DYNASTY_WEB_proyecto/View/vInicio/IniciarSesion.php?salida=1");
+        header("Location: /Dynasty/DYNASTY_WEB_proyecto/View/vInicio/IniciarSesion.php?exito=salida");
         exit();
     }
 
-    function generarContrasena()
+    function GenerarContrasena()
     {
         $caracteres = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
         $contrasena = '';
         $max = strlen($caracteres) - 1;
 
-        for ($i = 0; $i < 8; $i++) {
+        for($i = 0; $i < 8; $i++)
+        {
             $contrasena .= $caracteres[random_int(0, $max)];
         }
 
@@ -85,7 +94,7 @@
             $mail->send();
             return true;
         }
-        catch (Exception $e)
+        catch(Exception $e)
         {
             AddError($e, 'EnviarCorreo');
             return false;

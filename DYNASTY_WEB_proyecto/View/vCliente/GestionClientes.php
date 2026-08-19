@@ -1,4 +1,11 @@
 <?php
+/* ============================================================
+ * Proyecto : Dynasty - Sistema de gestion de rutinas
+ * Curso    : Ambiente Web Cliente/Servidor (SC-502)
+ * Archivo  : GestionClientes.php
+ * Proposito: Vista de clientes. Listado, edicion y desactivacion de clientes.
+ * ============================================================ */
+
     include_once $_SERVER['DOCUMENT_ROOT'] . '/Dynasty/DYNASTY_WEB_proyecto/Controller/ClienteController.php';
     include_once $_SERVER['DOCUMENT_ROOT'] . '/Dynasty/DYNASTY_WEB_proyecto/View/LayoutInterno.php';
 
@@ -19,7 +26,7 @@
     ?>
 
     <section class="seccion-sistema">
-        <div class="container">
+        <div class="container-fluid">
 
             <?php
                 Alertas([
@@ -69,7 +76,7 @@
                             <label>Nivel *</label>
                             <select name="nivel" id="edit_nivel" required>
                                 <?php foreach($niveles as $n): ?>
-                                    <option value="<?= $n['codigo_nivel'] ?>"><?= $n['descripcion'] ?></option>
+                                    <option value="<?= htmlspecialchars($n['codigo_nivel']) ?>"><?= htmlspecialchars($n['descripcion']) ?></option>
                                 <?php endforeach; ?>
                             </select>
                         </div>
@@ -147,8 +154,6 @@
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
-                        <?php else: ?>
-                            <tr><td colspan="7" class="texto-centro">No hay clientes registrados.</td></tr>
                         <?php endif; ?>
                     </tbody>
                 </table>

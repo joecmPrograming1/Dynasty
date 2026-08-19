@@ -1,4 +1,12 @@
 <?php
+/* ============================================================
+ * Proyecto : Dynasty - Sistema de gestion de rutinas
+ * Curso    : Ambiente Web Cliente/Servidor (SC-502)
+ * Archivo  : EjercicioModel.php
+ * Proposito: Modelo de ejercicios. Acceso a datos del catalogo de ejercicios.
+ * Requerim.: RF03
+ * ============================================================ */
+
     include_once $_SERVER['DOCUMENT_ROOT'] . '/Dynasty/DYNASTY_WEB_proyecto/Model/UtilitarioModel.php';
 
     function RegistrarEjercicioModel($nombre, $categoria, $descripcion, $equipo)

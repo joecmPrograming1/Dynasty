@@ -1,4 +1,11 @@
 <?php
+/* ============================================================
+ * Proyecto : Dynasty - Sistema de gestion de rutinas
+ * Curso    : Ambiente Web Cliente/Servidor (SC-502)
+ * Archivo  : LayoutInterno.php
+ * Proposito: Plantilla interna. Menu segun el rol y encabezado de las pantallas del sistema.
+ * ============================================================ */
+
     include_once $_SERVER['DOCUMENT_ROOT'] . '/Dynasty/DYNASTY_WEB_proyecto/View/LayoutExterno.php';
 
 function HeaderInterno()
@@ -62,7 +69,7 @@ function BreadcrumbInterno($titulo)
                 <div class="row">
                     <div class="col-lg-12 text-center">
                         <div class="breadcrumb-text">
-                            <h2>' . $titulo . '</h2>
+                            <h2>' . htmlspecialchars($titulo) . '</h2>
                         </div>
                     </div>
                 </div>

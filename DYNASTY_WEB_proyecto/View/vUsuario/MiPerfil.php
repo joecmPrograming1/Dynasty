@@ -1,4 +1,11 @@
 <?php
+/* ============================================================
+ * Proyecto : Dynasty - Sistema de gestion de rutinas
+ * Curso    : Ambiente Web Cliente/Servidor (SC-502)
+ * Archivo  : MiPerfil.php
+ * Proposito: Vista Mi perfil. Datos de la cuenta y cambio de contrasena.
+ * ============================================================ */
+
     include_once $_SERVER['DOCUMENT_ROOT'] . '/Dynasty/DYNASTY_WEB_proyecto/Controller/UsuarioController.php';
     include_once $_SERVER['DOCUMENT_ROOT'] . '/Dynasty/DYNASTY_WEB_proyecto/View/LayoutInterno.php';
 
@@ -30,7 +37,7 @@
     ?>
 
     <section class="seccion-sistema">
-        <div class="container">
+        <div class="container-fluid">
 
             <?php Alertas(); ?>
 

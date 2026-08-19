@@ -1,4 +1,11 @@
 <?php
+/* ============================================================
+ * Proyecto : Dynasty - Sistema de gestion de rutinas
+ * Curso    : Ambiente Web Cliente/Servidor (SC-502)
+ * Archivo  : GestionEjercicios.php
+ * Proposito: Vista de ejercicios. Catalogo de ejercicios con filtros y edicion.
+ * ============================================================ */
+
     include_once $_SERVER['DOCUMENT_ROOT'] . '/Dynasty/DYNASTY_WEB_proyecto/Controller/EjercicioController.php';
     include_once $_SERVER['DOCUMENT_ROOT'] . '/Dynasty/DYNASTY_WEB_proyecto/View/LayoutInterno.php';
 
@@ -29,7 +36,7 @@
     ?>
 
     <section class="seccion-sistema">
-        <div class="container">
+        <div class="container-fluid">
 
             <?php
                 Alertas([
@@ -162,8 +169,6 @@
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
-                        <?php else: ?>
-                            <tr><td colspan="6" class="texto-centro">No hay ejercicios registrados.</td></tr>
                         <?php endif; ?>
                     </tbody>
                 </table>

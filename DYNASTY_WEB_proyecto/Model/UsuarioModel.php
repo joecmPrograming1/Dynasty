@@ -1,4 +1,12 @@
 <?php
+/* ============================================================
+ * Proyecto : Dynasty - Sistema de gestion de rutinas
+ * Curso    : Ambiente Web Cliente/Servidor (SC-502)
+ * Archivo  : UsuarioModel.php
+ * Proposito: Modelo de usuario. Acceso a datos de la cuenta y sus credenciales.
+ * Requerim.: RF01
+ * ============================================================ */
+
     include_once $_SERVER['DOCUMENT_ROOT'] . '/Dynasty/DYNASTY_WEB_proyecto/Model/UtilitarioModel.php';
 
     function ConsultarUsuarioModel($idUsuario)

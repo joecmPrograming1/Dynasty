@@ -1,4 +1,11 @@
 <?php
+/* ============================================================
+ * Proyecto : Dynasty - Sistema de gestion de rutinas
+ * Curso    : Ambiente Web Cliente/Servidor (SC-502)
+ * Archivo  : Asignaciones.php
+ * Proposito: Vista de asignaciones. Asignacion de rutinas y control de su estado.
+ * ============================================================ */
+
     include_once $_SERVER['DOCUMENT_ROOT'] . '/Dynasty/DYNASTY_WEB_proyecto/Controller/AsignacionController.php';
     include_once $_SERVER['DOCUMENT_ROOT'] . '/Dynasty/DYNASTY_WEB_proyecto/View/LayoutInterno.php';
 
@@ -20,7 +27,7 @@
     ?>
 
     <section class="seccion-sistema">
-        <div class="container">
+        <div class="container-fluid">
 
             <?php
                 Alertas([
@@ -153,8 +160,6 @@
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
-                        <?php else: ?>
-                            <tr><td colspan="7" class="texto-centro">No hay asignaciones registradas.</td></tr>
                         <?php endif; ?>
                     </tbody>
                 </table>
@@ -167,7 +172,7 @@
         FooterExterno();
         ImportJS();
     ?>
-    <script src="/Dynasty/DYNASTY_WEB_proyecto/js/asignaciones.js"></script>
+    <script src="/Dynasty/DYNASTY_WEB_proyecto/js/asignaciones.js?v=8"></script>
 
 </body>
 </html>

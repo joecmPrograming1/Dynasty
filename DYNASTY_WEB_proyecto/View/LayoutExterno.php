@@ -1,4 +1,10 @@
 <?php
+/* ============================================================
+ * Proyecto : Dynasty - Sistema de gestion de rutinas
+ * Curso    : Ambiente Web Cliente/Servidor (SC-502)
+ * Archivo  : LayoutExterno.php
+ * Proposito: Plantilla externa. Encabezado, pie y carga de recursos de las pantallas publicas.
+ * ============================================================ */
 
 function ImportCSS()
 {
@@ -13,9 +19,8 @@ function ImportCSS()
         <link rel="stylesheet" href="/Dynasty/DYNASTY_WEB_proyecto/css/bootstrap.min.css" type="text/css">
         <link rel="stylesheet" href="/Dynasty/DYNASTY_WEB_proyecto/css/font-awesome.min.css" type="text/css">
         <link rel="stylesheet" href="/Dynasty/DYNASTY_WEB_proyecto/css/style.css" type="text/css">
-        <link rel="stylesheet" href="/Dynasty/DYNASTY_WEB_proyecto/css/practica1.css" type="text/css">
         <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.min.css">
-        <link rel="stylesheet" href="/Dynasty/DYNASTY_WEB_proyecto/css/dynasty.css" type="text/css">
+        <link rel="stylesheet" href="/Dynasty/DYNASTY_WEB_proyecto/css/dynasty.css?v=8" type="text/css">
         </head>
     ';
 }
@@ -27,7 +32,7 @@ function ImportJS()
         <script src="/Dynasty/DYNASTY_WEB_proyecto/js/bootstrap.min.js"></script>
         <script src="https://cdn.datatables.net/2.1.8/js/dataTables.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-        <script src="/Dynasty/DYNASTY_WEB_proyecto/js/dynasty.js"></script>
+        <script src="/Dynasty/DYNASTY_WEB_proyecto/js/dynasty.js?v=8"></script>
     ';
 }
 
@@ -66,10 +71,10 @@ function BreadcrumbExterno($titulo)
                 <div class="row">
                     <div class="col-lg-12 text-center">
                         <div class="breadcrumb-text">
-                            <h2>' . $titulo . '</h2>
+                            <h2>' . htmlspecialchars($titulo) . '</h2>
                             <div class="bt-option">
                                 <a href="/Dynasty/DYNASTY_WEB_proyecto/Inicio.php">Inicio</a>
-                                <span>' . $titulo . '</span>
+                                <span>' . htmlspecialchars($titulo) . '</span>
                             </div>
                         </div>
                     </div>
@@ -104,11 +109,13 @@ function FooterExterno()
  */
 function Alertas($exitos = [])
 {
+    // Todo mensaje se codifica antes de mostrarse: nunca se envia al
+    // navegador un texto que provenga de la peticion sin escapar (RNF01).
     if(isset($_GET["exito"]))
     {
         $codigo  = $_GET["exito"];
         $mensaje = isset($exitos[$codigo]) ? $exitos[$codigo] : "Operacion realizada correctamente.";
-        echo '<div class="alerta alerta-exito">' . $mensaje . '</div>';
+        echo '<div class="alerta alerta-exito">' . htmlspecialchars($mensaje) . '</div>';
     }
 
     if(isset($_GET["error"]))
@@ -118,11 +125,11 @@ function Alertas($exitos = [])
 
     if(isset($_POST["MensajeExito"]))
     {
-        echo '<div class="alerta alerta-exito">' . $_POST["MensajeExito"] . '</div>';
+        echo '<div class="alerta alerta-exito">' . htmlspecialchars($_POST["MensajeExito"]) . '</div>';
     }
 
     if(isset($_POST["Mensaje"]))
     {
-        echo '<div class="alerta alerta-error">' . $_POST["Mensaje"] . '</div>';
+        echo '<div class="alerta alerta-error">' . htmlspecialchars($_POST["Mensaje"]) . '</div>';
     }
 }

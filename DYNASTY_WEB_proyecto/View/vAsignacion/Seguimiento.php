@@ -1,4 +1,11 @@
 <?php
+/* ============================================================
+ * Proyecto : Dynasty - Sistema de gestion de rutinas
+ * Curso    : Ambiente Web Cliente/Servidor (SC-502)
+ * Archivo  : Seguimiento.php
+ * Proposito: Vista de seguimiento. Progreso filtrado y retroalimentacion del entrenador.
+ * ============================================================ */
+
     include_once $_SERVER['DOCUMENT_ROOT'] . '/Dynasty/DYNASTY_WEB_proyecto/Controller/SeguimientoController.php';
     include_once $_SERVER['DOCUMENT_ROOT'] . '/Dynasty/DYNASTY_WEB_proyecto/View/LayoutInterno.php';
 
@@ -23,7 +30,7 @@
     ?>
 
     <section class="seccion-sistema">
-        <div class="container">
+        <div class="container-fluid">
 
             <?php
                 Alertas([
@@ -148,7 +155,7 @@
         FooterExterno();
         ImportJS();
     ?>
-    <script src="/Dynasty/DYNASTY_WEB_proyecto/js/seguimiento.js"></script>
+    <script src="/Dynasty/DYNASTY_WEB_proyecto/js/seguimiento.js?v=8"></script>
 
 </body>
 </html>

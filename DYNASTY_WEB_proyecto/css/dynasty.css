@@ -1,6 +1,5 @@
 /* ============================================================
    DYNASTY - Estilos del sistema (vistas internas)
-   Complementa la plantilla manteniendo el tema oscuro
    ============================================================ */
 
 .usuario-sesion {
@@ -82,7 +81,7 @@
 }
 
 .panel-card p {
-    color: #888888;
+    color: #b9b9b9;
     font-size: 14px;
     margin-bottom: 18px;
 }
@@ -115,7 +114,7 @@
 }
 
 .tabla-sistema td {
-    color: #c4c4c4;
+    color: #dedede;
     font-size: 14px;
     padding: 12px;
     border-bottom: 1px solid #2a2a2a;
@@ -134,7 +133,7 @@
 }
 
 .estado-inactivo {
-    color: #d9534f;
+    color: #e8736f;
     font-weight: 600;
     font-size: 12px;
     text-transform: uppercase;
@@ -163,7 +162,7 @@
 
 .btn-accion.peligro {
     border-color: #d9534f;
-    color: #d9534f;
+    color: #e8736f;
 }
 
 .btn-accion.peligro:hover {
@@ -186,7 +185,7 @@
 }
 
 .form-sistema label {
-    color: #888888;
+    color: #b9b9b9;
     font-size: 13px;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -391,7 +390,7 @@
     right: 15px;
     top: 50%;
     transform: translateY(-50%);
-    color: #888888;
+    color: #b9b9b9;
     cursor: pointer;
     font-size: 16px;
     z-index: 5;
@@ -659,7 +658,7 @@
 }
 
 .form-registro label {
-    color: #888888;
+    color: #b9b9b9;
     font-size: 13px;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -699,7 +698,7 @@
 
 .form-registro input::placeholder,
 .form-registro textarea::placeholder {
-    color: #888888;
+    color: #b9b9b9;
 }
 
 /* Campo de contraseña con ojito alineado dentro del input */
@@ -717,7 +716,7 @@
     right: 16px;
     top: 25px;
     transform: translateY(-50%);
-    color: #888888;
+    color: #b9b9b9;
     cursor: pointer;
 }
 
@@ -759,7 +758,7 @@
 }
 
 .nota-formulario {
-    color: #888888;
+    color: #b9b9b9;
     font-size: 13px;
     margin-bottom: 18px;
 }
@@ -820,7 +819,7 @@
 .btn-quitar {
     background: transparent;
     border: 1px solid #d9534f;
-    color: #d9534f;
+    color: #e8736f;
     width: 32px;
     height: 32px;
     font-size: 18px;
@@ -872,7 +871,7 @@
 }
 
 .tarjeta-info .meta {
-    color: #888888;
+    color: #b9b9b9;
     font-size: 14px;
     margin-bottom: 0;
 }
@@ -886,12 +885,12 @@
 
 .dato-linea div {
     font-size: 14px;
-    color: #c4c4c4;
+    color: #dedede;
 }
 
 .dato-linea span {
     display: block;
-    color: #888888;
+    color: #b9b9b9;
     font-size: 12px;
     text-transform: uppercase;
     letter-spacing: .6px;
@@ -926,7 +925,7 @@
     gap: 22px;
     margin-top: 12px;
     font-size: 14px;
-    color: #c4c4c4;
+    color: #dedede;
 }
 
 .ejercicio-item .parametros b {
@@ -936,7 +935,7 @@
 .ejercicio-item .indicaciones {
     margin-top: 10px;
     font-size: 14px;
-    color: #999999;
+    color: #c0c0c0;
     font-style: italic;
 }
 
@@ -968,11 +967,11 @@
 .badge-pendiente  { background: #2a2312; color: #f0ad4e; }
 .badge-enproceso  { background: #12202a; color: #5bc0de; }
 .badge-finalizada { background: #0f2318; color: #2eb872; }
-.badge-cancelada  { background: #2a1212; color: #d9534f; }
+.badge-cancelada  { background: #2a1212; color: #ec8580; }
 
 .badge-completo     { background: #0f2318; color: #2eb872; }
 .badge-parcial      { background: #2a2312; color: #f0ad4e; }
-.badge-no_realizado { background: #2a1212; color: #d9534f; }
+.badge-no_realizado { background: #2a1212; color: #ec8580; }
 
 /* Mensaje cuando no hay informacion */
 .mensaje-vacio {
@@ -984,7 +983,7 @@
 
 .mensaje-vacio i {
     font-size: 42px;
-    color: #444444;
+    color: #858585;
     display: block;
     margin-bottom: 14px;
 }
@@ -996,7 +995,7 @@
 }
 
 .mensaje-vacio p {
-    color: #888888;
+    color: #b9b9b9;
     font-size: 14px;
     margin: 0;
 }
@@ -1008,7 +1007,7 @@
     padding: 10px 14px;
     margin-top: 8px;
     font-size: 14px;
-    color: #c4c4c4;
+    color: #dedede;
 }
 
 .retro-admin b {
@@ -1020,38 +1019,185 @@
     margin-bottom: 3px;
 }
 
-/* DataTables sobre el tema oscuro */
-.dataTables_wrapper {
-    color: #c4c4c4;
+/* ============================================================
+   DataTables 2.x sobre el tema oscuro
+   La version 2 renombro las clases: dt-container, dt-length,
+   dt-search, dt-info y dt-paging.
+   ============================================================ */
+.dt-container {
+    color: #efefef;
 }
 
-.dataTables_wrapper .dataTables_filter input,
-.dataTables_wrapper .dataTables_length select {
+.dt-container .dt-length,
+.dt-container .dt-search,
+.dt-container .dt-info {
+    color: #efefef;
+    font-size: 14px;
+    padding: 12px 0;
+}
+
+.dt-container .dt-length label,
+.dt-container .dt-search label {
+    color: #efefef;
+    font-weight: 500;
+    margin-bottom: 0;
+}
+
+.dt-container .dt-length select,
+.dt-container .dt-search input {
     background: #0a0a0a;
-    border: 1px solid #363636;
+    border: 1px solid #4a4a4a;
     color: #ffffff;
-    padding: 5px 10px;
-    margin-left: 6px;
+    padding: 6px 12px;
+    margin: 0 8px;
+    border-radius: 2px;
 }
 
-.dataTables_wrapper .dataTables_paginate .paginate_button {
-    color: #c4c4c4 !important;
+.dt-container .dt-length select option {
+    background: #0a0a0a;
+    color: #ffffff;
 }
 
-.dataTables_wrapper .dataTables_paginate .paginate_button.current {
+.dt-container .dt-search input:focus,
+.dt-container .dt-length select:focus {
+    border-color: #f36100;
+    outline: none;
+}
+
+.dt-container .dt-paging {
+    padding-top: 12px;
+}
+
+.dt-container .dt-paging .dt-paging-button {
+    background: transparent !important;
+    border: 1px solid #4a4a4a !important;
+    color: #efefef !important;
+    margin-left: 4px;
+    padding: 6px 14px;
+    border-radius: 2px;
+}
+
+.dt-container .dt-paging .dt-paging-button:hover {
+    background: #1d1d1d !important;
+    border-color: #f36100 !important;
+    color: #ffffff !important;
+}
+
+.dt-container .dt-paging .dt-paging-button.current,
+.dt-container .dt-paging .dt-paging-button.current:hover {
     background: #f36100 !important;
     border-color: #f36100 !important;
     color: #ffffff !important;
 }
 
-.dataTables_wrapper .dataTables_info,
-.dataTables_wrapper .dataTables_length,
-.dataTables_wrapper .dataTables_filter {
-    padding: 10px 0;
+.dt-container .dt-paging .dt-paging-button.disabled,
+.dt-container .dt-paging .dt-paging-button.disabled:hover {
+    color: #909090 !important;
+    border-color: #2f2f2f !important;
+    background: transparent !important;
+}
+
+/* Encabezados ordenables */
+table.dataTable thead th.dt-orderable-asc,
+table.dataTable thead th.dt-orderable-desc {
+    color: #f36100;
+}
+
+table.dataTable thead th.dt-ordering-asc,
+table.dataTable thead th.dt-ordering-desc {
+    color: #ffffff;
+}
+
+table.dataTable tbody tr,
+table.dataTable tbody tr.odd,
+table.dataTable tbody tr.even {
+    background: transparent;
+}
+
+/* Mensaje cuando la tabla no tiene registros */
+table.dataTable td.dt-empty {
+    color: #d2d2d2;
+    text-align: center;
+    padding: 26px 12px;
     font-size: 14px;
 }
 
-table.dataTable tbody tr { background: transparent; }
+/* ============================================================
+   Pantallas de acceso (ingreso, registro y recuperacion)
+   ============================================================ */
+.logo-text,
+.footer-logo-text {
+    color: #ffffff;
+    font-family: "Oswald", sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-decoration: none;
+}
+
+.logo-text:hover,
+.footer-logo-text:hover {
+    color: #f36100;
+    text-decoration: none;
+}
+
+.auth-section {
+    background: #151515;
+}
+
+.auth-card {
+    background: #0a0a0a;
+    padding: 35px;
+    border: 1px solid #333333;
+}
+
+.auth-card p {
+    color: #dedede;
+    margin-bottom: 25px;
+}
+
+.auth-card input {
+    width: 100%;
+    height: 50px;
+    border: 1px solid #363636;
+    background: transparent;
+    color: #ffffff;
+    font-size: 15px;
+    padding-left: 20px;
+    margin-bottom: 18px;
+}
+
+.auth-card input::placeholder {
+    color: #b9b9b9;
+}
+
+.auth-card .site-btn {
+    width: 100%;
+    margin-top: 5px;
+}
+
+.auth-links {
+    margin-top: 25px;
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.auth-links a {
+    color: #f36100;
+    font-size: 14px;
+}
+
+.auth-links a:hover {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+@media only screen and (max-width: 767px) {
+    .auth-card { padding: 25px; }
+    .logo-text { font-size: 26px; }
+}
 
 @media only screen and (max-width: 767px) {
     .dato-linea { gap: 14px; }
@@ -1065,10 +1211,153 @@ table.dataTable tbody tr { background: transparent; }
     margin-top: -10px;
     margin-bottom: 14px;
     font-size: 12px;
-    color: #888888;
+    color: #b9b9b9;
 }
 
 .texto-tenue {
-    color: #777777;
+    color: #b0b0b0;
     font-size: 13px;
+}
+
+/* ============================================================
+   LEGIBILIDAD SOBRE EL FONDO OSCURO
+   La plantilla base define los parrafos en un gris (#a9a9a9) que
+   sobre el fondo negro del sistema queda muy apagado. Aqui se
+   aclaran los textos de las pantallas internas sin modificar la
+   plantilla original.
+   ============================================================ */
+.seccion-sistema p,
+.auth-section p,
+.seccion-sistema li,
+.seccion-sistema td,
+.seccion-sistema span:not(.badge-estado):not(.numero):not(.estado-activo):not(.estado-inactivo) {
+    color: #dedede;
+}
+
+.seccion-sistema h3,
+.seccion-sistema h4,
+.seccion-sistema h5,
+.auth-card h3,
+.auth-card h4 {
+    color: #ffffff;
+}
+
+.seccion-sistema label,
+.auth-card label {
+    color: #c9c9c9;
+}
+
+/* Texto que se escribe dentro de los campos */
+.form-sistema input,
+.form-sistema select,
+.form-sistema textarea,
+.filtros-sistema input,
+.filtros-sistema select,
+.auth-card input {
+    color: #ffffff;
+}
+
+.form-sistema input::placeholder,
+.form-sistema textarea::placeholder,
+.filtros-sistema input::placeholder,
+.auth-card input::placeholder {
+    color: #a6a6a6;
+    opacity: 1;
+}
+
+/* Pie de pagina */
+.copyright-text,
+.copyright-text a {
+    color: #d2d2d2;
+}
+
+/* Enlaces del menu superior en la pantalla activa */
+.nav-menu ul li a {
+    color: #ffffff;
+}
+
+.nav-menu ul li.active a,
+.nav-menu ul li a:hover {
+    color: #f36100;
+}
+
+/* Fechas y datos secundarios dentro de las tarjetas */
+.tarjeta-info .meta,
+.dato-linea span,
+.ayuda-campo,
+.nota-formulario,
+.texto-tenue {
+    color: #b9b9b9;
+}
+
+/* Mensaje de las pantallas sin registros */
+.mensaje-vacio h4 {
+    color: #ffffff;
+}
+
+.mensaje-vacio p {
+    color: #c4c4c4;
+}
+
+/* ============================================================
+   ANCHO DE LAS PANTALLAS DEL SISTEMA
+   Las vistas internas usan container-fluid para aprovechar todo
+   el ancho disponible y evitar el desplazamiento horizontal en
+   las tablas. Se limita en pantallas muy amplias para que las
+   lineas de texto no queden demasiado largas.
+   ============================================================ */
+.seccion-sistema .container-fluid {
+    max-width: 1720px;
+    margin: 0 auto;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+/* Las tablas ocupan el ancho completo de su contenedor */
+.tabla-scroll {
+    width: 100%;
+}
+
+.tabla-sistema {
+    table-layout: auto;
+}
+
+/* Columnas de comentarios: que el texto use el espacio disponible */
+.tabla-sistema td .retro-admin,
+.tabla-sistema td {
+    white-space: normal;
+    word-break: break-word;
+}
+
+@media only screen and (max-width: 991px) {
+    .seccion-sistema .container-fluid {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .seccion-sistema .container-fluid {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+/* Ejercicios de la rutina del cliente en rejilla: aprovechan el ancho
+   disponible en lugar de quedar uno debajo del otro ocupando toda la fila. */
+.lista-ejercicios {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    gap: 14px;
+    margin-bottom: 10px;
+}
+
+.lista-ejercicios .ejercicio-item {
+    margin-bottom: 0;
+}
+
+@media only screen and (max-width: 767px) {
+    .lista-ejercicios {
+        grid-template-columns: 1fr;
+    }
 }

@@ -1,4 +1,11 @@
 <?php
+/* ============================================================
+ * Proyecto : Dynasty - Sistema de gestion de rutinas
+ * Curso    : Ambiente Web Cliente/Servidor (SC-502)
+ * Archivo  : GestionRutinas.php
+ * Proposito: Vista de rutinas. Rutinas con su detalle ordenado de ejercicios.
+ * ============================================================ */
+
     include_once $_SERVER['DOCUMENT_ROOT'] . '/Dynasty/DYNASTY_WEB_proyecto/Controller/RutinaController.php';
     include_once $_SERVER['DOCUMENT_ROOT'] . '/Dynasty/DYNASTY_WEB_proyecto/View/LayoutInterno.php';
 
@@ -20,7 +27,7 @@
     ?>
 
     <section class="seccion-sistema">
-        <div class="container">
+        <div class="container-fluid">
 
             <?php
                 Alertas([
@@ -64,7 +71,7 @@
                             <label>Nivel *</label>
                             <select name="nivel" id="nivelRutina" required>
                                 <?php foreach($niveles as $n): ?>
-                                    <option value="<?= $n['codigo_nivel'] ?>"><?= $n['descripcion'] ?></option>
+                                    <option value="<?= htmlspecialchars($n['codigo_nivel']) ?>"><?= htmlspecialchars($n['descripcion']) ?></option>
                                 <?php endforeach; ?>
                             </select>
                         </div>
@@ -158,8 +165,6 @@
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
-                        <?php else: ?>
-                            <tr><td colspan="6" class="texto-centro">No hay rutinas registradas.</td></tr>
                         <?php endif; ?>
                     </tbody>
                 </table>
@@ -177,7 +182,7 @@
     <script>
         var EJERCICIOS = <?= json_encode($ejercicios) ?>;
     </script>
-    <script src="/Dynasty/DYNASTY_WEB_proyecto/js/rutinas.js"></script>
+    <script src="/Dynasty/DYNASTY_WEB_proyecto/js/rutinas.js?v=8"></script>
 
 </body>
 </html>
