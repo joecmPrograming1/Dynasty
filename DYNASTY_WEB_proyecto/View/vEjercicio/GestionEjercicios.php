@@ -161,7 +161,10 @@
                                             onsubmit="return confirmarEstado(this, '¿Está seguro de que desea <?= $e["estado"] == 1 ? "desactivar" : "activar" ?> este ejercicio?');">
                                             <input type="hidden" name="idEjercicio" value="<?= $e["id_ejercicio"] ?>">
                                             <input type="hidden" name="estado" value="<?= $e["estado"] == 1 ? 0 : 1 ?>">
-                                            <button type="submit" name="btnCambiarEstadoEjercicio"
+                                            <!-- El envio se hace desde JavaScript tras la confirmacion, y en ese
+                                                 caso el nombre del boton no viaja. Por eso se envia como campo oculto. -->
+                                            <input type="hidden" name="btnCambiarEstadoEjercicio" value="1">
+                                            <button type="submit"
                                                 class="btn-accion <?= $e["estado"] == 1 ? "peligro" : "" ?>">
                                                 <?= $e["estado"] == 1 ? "Desactivar" : "Activar" ?>
                                             </button>

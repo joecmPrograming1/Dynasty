@@ -767,6 +767,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `spConsultarDetalleRutina`(
 BEGIN
     SELECT  re.id_rutina_ejercicio,
             re.orden,
+            re.id_ejercicio,
             e.nombre_ejercicio,
             e.categoria,
             re.series,

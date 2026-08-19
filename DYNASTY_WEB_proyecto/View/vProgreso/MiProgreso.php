@@ -163,7 +163,7 @@
         FooterExterno();
         ImportJS();
     ?>
-    <script src="/Dynasty/DYNASTY_WEB_proyecto/js/progreso.js?v=8"></script>
+    <script src="/Dynasty/DYNASTY_WEB_proyecto/js/progreso.js?v=9"></script>
 
 </body>
 </html>

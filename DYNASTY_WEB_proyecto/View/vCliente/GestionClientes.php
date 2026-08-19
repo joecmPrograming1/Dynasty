@@ -146,7 +146,10 @@
                                             onsubmit="return confirmarEstado(this, '¿Está seguro de que desea <?= $c["estado"] == 1 ? "desactivar" : "activar" ?> este cliente?');">
                                             <input type="hidden" name="idCliente" value="<?= $c["id_cliente"] ?>">
                                             <input type="hidden" name="estado" value="<?= $c["estado"] == 1 ? 0 : 1 ?>">
-                                            <button type="submit" name="btnCambiarEstadoCliente"
+                                            <!-- El envio se hace desde JavaScript tras la confirmacion, y en ese
+                                                 caso el nombre del boton no viaja. Por eso se envia como campo oculto. -->
+                                            <input type="hidden" name="btnCambiarEstadoCliente" value="1">
+                                            <button type="submit"
                                                 class="btn-accion <?= $c["estado"] == 1 ? "peligro" : "" ?>">
                                                 <?= $c["estado"] == 1 ? "Desactivar" : "Activar" ?>
                                             </button>

@@ -182,7 +182,7 @@
     <script>
         var EJERCICIOS = <?= json_encode($ejercicios) ?>;
     </script>
-    <script src="/Dynasty/DYNASTY_WEB_proyecto/js/rutinas.js?v=8"></script>
+    <script src="/Dynasty/DYNASTY_WEB_proyecto/js/rutinas.js?v=9"></script>
 
 </body>
 </html>

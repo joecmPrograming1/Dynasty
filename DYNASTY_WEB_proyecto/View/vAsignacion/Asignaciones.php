@@ -172,7 +172,7 @@
         FooterExterno();
         ImportJS();
     ?>
-    <script src="/Dynasty/DYNASTY_WEB_proyecto/js/asignaciones.js?v=8"></script>
+    <script src="/Dynasty/DYNASTY_WEB_proyecto/js/asignaciones.js?v=9"></script>
 
 </body>
 </html>
